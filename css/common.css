@@ -44,10 +44,6 @@ a:link:active {
   color: var(--accent-c);
 }
 
-h2 {
-  font-size: var(--large-fz);
-}
-
 button {
   background: none;
   border: none;
