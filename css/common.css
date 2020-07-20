@@ -1,19 +1,19 @@
 :root {
-  --light-fz: 14px;
-  --small-fz: 18px;
-  --medium-fz: 24px;
-  --large-fz: 26px;
-  --text-c: #f2f2f2;
   --accent-c: #f2994a;
-  --hover-c: #f2c94c;
-  --error-c: #eb5757;
   --bg-c: #333333;
-  --light-bg-c: #4f4f4f;
-  --dark-bg-c: #160d0d;
   --border-c: #828282;
-  --nomral-fw: normal;
-  --medium-fw: 600;
   --bold-fw: bold;
+  --dark-bg-c: #160d0d;
+  --error-c: #eb5757;
+  --hover-c: #f2c94c;
+  --light-fz: 14px;
+  --large-fz: 26px;
+  --light-bg-c: #4f4f4f;
+  --medium-fz: 24px;
+  --medium-fw: 600;
+  --nomral-fw: normal;
+  --small-fz: 18px;
+  --text-c: #f2f2f2;
 }
 
 *, ::before, ::after {
@@ -21,37 +21,25 @@
 }
 
 body {
+  background-color: var(--bg-c);
+  color: var(--text-c);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: var(--light-fz);
-  color: var(--text-c);
-  background-color: var(--bg-c);
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 a:link {
-  display: inline-block;
   color: var(--text-c);
+  display: inline-block;
+  transition: 0.2s;
 }
 
 a:link:hover {
   color: var(--hover-c);
-  transform: scale(1.1);
-  transition: 0.2s;
+  transform: scale(1.05);
 }
 
 a:link:active {
   color: var(--accent-c);
-}
-
-button {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
