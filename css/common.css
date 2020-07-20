@@ -26,6 +26,7 @@ body {
   color: var(--text-c);
   background-color: var(--bg-c);
   padding: 0;
+  margin: 0;
 }
 
 a:link {
