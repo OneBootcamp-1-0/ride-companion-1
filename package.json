@@ -1,0 +1,39 @@
+{
+  "name": "ride-companion-1",
+  "version": "1.0.0",
+  "description": "Лучший в России сервис подписки на автомобили Учебный проект на буткепме OneBootcamp",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "test": "stylelint **/*.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OneBootcamp-1-0/ride-companion-1.git"
+  },
+  "author": "OneBootCamp",
+  "contributors": [
+    {
+      "name": "Evgeniy Khristenko",
+      "url": "https://github.com/JohnC27"
+    },
+    {
+      "name": "Daria Kravchenko",
+      "url": "https://github.com/daria269"
+    },
+    {
+      "name": "Maria Yun",
+      "url": "https://github.com/mariaYunB"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OneBootcamp-1-0/ride-companion-1/issues"
+  },
+  "homepage": "https://github.com/OneBootcamp-1-0/ride-companion-1#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}
