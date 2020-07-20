@@ -30,21 +30,18 @@ body {
 }
 
 a:link {
+  display: inline-block;
   color: var(--text-c);
 }
 
 a:link:hover {
   color: var(--hover-c);
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 a:link:active {
   color: var(--accent-c);
-}
-
-h1 {
-  font-size: var(--light-fz);
-  color: #000000;
-  font-weight: var(--nomral-fw);
 }
 
 h2 {
