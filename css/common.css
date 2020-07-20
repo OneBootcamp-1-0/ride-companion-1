@@ -1,0 +1,45 @@
+:root {
+  --accent-c: #f2994a;
+  --bg-c: #333333;
+  --border-c: #828282;
+  --bold-fw: bold;
+  --dark-bg-c: #160d0d;
+  --error-c: #eb5757;
+  --hover-c: #f2c94c;
+  --light-fz: 14px;
+  --large-fz: 26px;
+  --light-bg-c: #4f4f4f;
+  --medium-fz: 24px;
+  --medium-fw: 600;
+  --nomral-fw: normal;
+  --small-fz: 18px;
+  --text-c: #f2f2f2;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-c);
+  color: var(--text-c);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: var(--light-fz);
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  color: var(--text-c);
+  display: inline-block;
+  transition: 0.2s;
+}
+
+a:link:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+}
+
+a:link:active {
+  color: var(--accent-c);
+}
