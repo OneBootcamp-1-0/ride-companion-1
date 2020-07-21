@@ -1,0 +1,34 @@
+.menu {
+  column-gap: 15px;
+  display: grid;
+  font-size: 18px;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  padding: 15px 10px;
+}
+
+.menu__controls {
+  align-items: center;
+  column-gap: 15px;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.menu-controls__btn {
+  display: flex;
+}
+
+.menu-controls__btn:hover > svg {
+  stroke: var(--hover-c);
+}
+
+.menu-controls__btn--active > svg {
+  stroke: var(--accent-c);
+}
+
+.menu__options {
+  column-gap: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+}
