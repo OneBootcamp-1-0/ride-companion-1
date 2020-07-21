@@ -1,0 +1,25 @@
+.header {
+  align-items: center;
+  background-image: url(../img/header-bg.jpg);
+  background-repeat: round;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 16px;
+}
+
+.header__description {
+  color: var(--basic-black);
+  margin: 12px 0 0;
+  max-width: 220px;
+  text-align: center;
+}
+
+.footer {
+  align-items: center;
+  border-top: 1px solid var(--light-bg-c);
+  color: var(--grey);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 65px 15px;
+}
