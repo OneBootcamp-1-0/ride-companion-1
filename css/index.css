@@ -1,0 +1,20 @@
+.filter {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: max-content 1fr;
+  padding: 0 20px 15px 40px;
+}
+
+.filter__options {
+  column-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter__options--price {
+  text-align: center;
+}
+
+input[type="range"] {
+  height: 24px;
+}
