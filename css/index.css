@@ -11,10 +11,39 @@
   flex-wrap: wrap;
 }
 
-.filter__options--price {
+.filter-price {
   text-align: center;
 }
 
-input[type="range"] {
-  height: 24px;
+input[type=range].range {
+  -webkit-appearance: none;
+  width: 100%;
+  background: none;
 }
+
+input[type=range].range::-webkit-slider-runnable-track {
+  height: 24px;
+  border: 1px solid var(--border-c);
+  border-radius: 100px;
+}
+
+input[type=range].range::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  background: var(--text-c);
+  border: 1px solid var(--text-c);
+}
+
+.filter-price__display {
+  color: var(--border-c);
+}
+
+.filter-price__input {
+  background: none;
+  border: none;
+  width: fit-content;
+  color: #bdbdbd;
+}
+
