@@ -30,7 +30,7 @@ body {
 }
 
 a:link {
-  color: var(--text-c);
+  color: inherit;
   display: inline-block;
   transition: 0.2s;
 }
@@ -42,4 +42,10 @@ a:link:hover {
 
 a:link:active {
   color: var(--accent-c);
+}
+
+ul {
+  margin: 0;
+  padding: 15px 42px;
+  list-style-type: none;
 }
