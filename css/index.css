@@ -48,6 +48,7 @@
 .menu__label {
   cursor: pointer;
   display: inline-block;
+  transition: 0.2s;
 }
 
 .menu__label:hover {
