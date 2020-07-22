@@ -5,6 +5,20 @@
   padding: 0 20px 15px 40px;
 }
 
+.filter__radio-input {
+  display: none;
+}
+
+.filter__label {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter__label:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+}
+
 .filter__options {
   column-gap: 10px;
   display: flex;
