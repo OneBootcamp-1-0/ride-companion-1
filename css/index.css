@@ -1,0 +1,35 @@
+.header {
+  background-image: url(../img/header-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  justify-items: center;
+  padding: 30px 30px 15px;
+}
+
+.header__tagline {
+  color: #000000;
+  margin: 12px 0 0;
+  max-width: 220px;
+  text-align: center;
+}
+
+.header__tagline::first-letter,
+.footer__copyright::first-letter {
+  text-transform: lowercase;
+}
+
+.header__title {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.footer {
+  border-top: 1px solid var(--light-bg-c);
+  color: var(--border-c);
+  display: grid;
+  justify-items: center;
+  padding: 10px 65px 15px;
+}

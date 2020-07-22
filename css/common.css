@@ -1,8 +1,8 @@
 :root {
   --accent-c: #f2994a;
   --bg-c: #333333;
-  --grey: #828282;
   --bold-fw: bold;
+  --border-c: #828282;
   --dark-bg-c: #160d0d;
   --error-c: #eb5757;
   --hover-c: #f2c94c;
@@ -14,7 +14,6 @@
   --nomral-fw: normal;
   --small-fz: 18px;
   --text-c: #f2f2f2;
-  --basic-black: #000000;
 }
 
 *, ::before, ::after {
