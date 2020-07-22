@@ -43,7 +43,3 @@ a:link:hover {
 a:link:active {
   color: var(--accent-c);
 }
-
-dd {
-  margin: 0;
-}
