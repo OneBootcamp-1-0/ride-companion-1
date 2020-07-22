@@ -1,0 +1,13 @@
+.catalog {
+  display: grid;
+}
+
+.catalog-item__title {
+  color: var(--text-c);
+  font-size: var(--large-fz);
+  text-decoration: underline;
+}
+
+.catalog-item__price {
+  font-size: var(--small-fz);
+}
