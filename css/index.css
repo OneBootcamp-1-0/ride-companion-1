@@ -62,11 +62,12 @@
   font-size: 48px;
 }
 
-@keyframes loading{
+@keyframes loading {
   0% {
     transform: translateY(0);
     z-index: 1;
   }
+
   100% {
     transform: translateY(120px);
     z-index: -1;
