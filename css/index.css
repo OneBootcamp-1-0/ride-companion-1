@@ -26,8 +26,9 @@
   margin: 0;
 }
 
-.filter-price {
+.filter__price {
   display: grid;
+  row-gap: 5px;
 }
 
 .scale {
