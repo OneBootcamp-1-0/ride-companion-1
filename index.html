@@ -5,38 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ride companion Лучший в России сервис подписки на автомобили.</title>
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <header class="header">
-    <nav class="main-nav">
-      <ul class="main-nav__sort-list">
+      <ul class="sort-list">
         <li>
-          <a href="#">
-            Сначала рекомендованные
-          </a>
+          <label class="sort-list__label" for="recommended">Сначала рекомендованные</label>
+          <input type="radio" id="recommended" name="sort" class="sort-list__input">
         </li>
         <li>
-          <a href="#">
-            Сначала дорогие
-          </a>
+          <label class="sort-list__label" for="expensive">Сначала дорогие</a>
+          <input type="radio" id="expensive" name="sort" class="sort-list__input">
         </li>
         <li>
-          <a href="#">
-          Сначала более дешевые
-          </a>
+          <label class="sort-list__label" for="cheap">Сначала более дешевые</a>
+          <input type="radio" id="cheap" name="sort" class="sort-list__input">
         </li>
         <li>
-          <a href="#">
-          Сначала экономные
-          </a>
+          <label class="sort-list__label" for="economic">Сначала экономные</a>
+          <input type="radio" id="economic" name="sort" class="sort-list__input">
         </li>
         <li>
-          <a href="#">
-            Сначала более мощные
-          </a>
+          <label class="sort-list__label" for="powerful">Сначала более мощные</label>
+          <input type="radio" id="powerful" name="sort" class="sort-list__input">
         </li>
       </ul>
-    </nav class="main-nav">
-  </header>
 </body>
 </html>

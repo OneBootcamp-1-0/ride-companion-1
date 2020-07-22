@@ -43,9 +43,3 @@ a:link:hover {
 a:link:active {
   color: var(--accent-c);
 }
-
-ul {
-  margin: 0;
-  padding: 15px 42px;
-  list-style-type: none;
-}

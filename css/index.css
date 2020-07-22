@@ -1,0 +1,28 @@
+.sort-list {
+  display: grid;
+  row-gap: 10px;
+  margin: 0;
+  overflow: hidden;
+  padding: 15px 40px;
+  list-style-type: none;
+}
+
+.sort-list__input {
+  display: none;
+}
+
+.sort-list__label {
+  cursor: pointer;
+  display: block;
+  text-decoration: underline;
+}
+
+.sort-list__label:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+  transform-origin: left;
+}
+
+.sort-list__label:active {
+  color: var(--accent-c);
+}
