@@ -13,7 +13,7 @@
 }
 
 .filter-price {
-  text-align: center;
+  display: grid;
 }
 
 input[type=range].range {
@@ -39,6 +39,7 @@ input[type=range].range::-webkit-slider-thumb {
 
 .filter-price__display {
   color: var(--border-c);
+  justify-self: center;
 }
 
 .filter-price__input {
