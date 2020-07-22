@@ -11,3 +11,17 @@
 .catalog-item__price {
   font-size: var(--small-fz);
 }
+
+.catalog-item__img-block {
+  display: flex;
+  height: 135px;
+  overflow: hidden;
+}
+
+.catalog-item__img--active {
+  flex-basis: 80%;
+ }
+
+.catalog-item__img {
+  flex-basis: 100%;
+}
