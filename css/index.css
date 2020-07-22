@@ -1,9 +1,16 @@
+.menu-wrapper {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
 .menu {
-  column-gap: 15px;
+  column-gap: 10px;
   display: grid;
   font-size: 18px;
   grid-auto-flow: column;
   justify-content: space-between;
+  list-style: none;
+  overflow-x: auto;
   padding: 15px 10px;
 }
 
@@ -14,15 +21,21 @@
   grid-auto-flow: column;
 }
 
-.menu-controls__btn {
-  display: flex;
+.menu__btn {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
-.menu-controls__btn:hover > svg {
+.menu__btn-icon:hover {
   stroke: var(--hover-c);
+  transition: 0.2s;
+  transform: scale(1.05);
 }
 
-.menu-controls__btn--active > svg {
+.menu__btn-icon--active {
   stroke: var(--accent-c);
 }
 
@@ -30,5 +43,18 @@
   column-gap: 10px;
   display: grid;
   grid-auto-flow: column;
-  overflow-x: auto;
+}
+
+.menu__label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.menu__label:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+}
+
+.menu__input {
+  display: none;
 }
