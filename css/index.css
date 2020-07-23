@@ -81,3 +81,13 @@
   text-decoration: underline;
   width: 42px;
 }
+
+.filter-price__input::-webkit-outer-spin-button,
+.filter-price__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.filter-price__input[type=number] {
+  -moz-appearance: textfield;
+}
