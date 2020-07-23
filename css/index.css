@@ -9,6 +9,12 @@
   display: none;
 }
 
+.filter__radio-input:checked + .filter__label {
+  color: var(--accent-c);
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .filter__label {
   cursor: pointer;
   transition: 0.2s;
