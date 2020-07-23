@@ -1,10 +1,11 @@
 .sort-list {
   display: grid;
-  row-gap: 10px;
+  list-style-type: none;
   margin: 0;
   overflow: hidden;
   padding: 15px 40px;
-  list-style-type: none;
+  row-gap: 10px;
+
 }
 
 .sort-list__input {
@@ -23,6 +24,7 @@
   transform-origin: left;
 }
 
-.sort-list__label:active {
+.sort-list__input:checked + .sort-list__label {
   color: var(--accent-c);
+  text-decoration: none;
 }
