@@ -59,3 +59,8 @@
 .menu__input {
   display: none;
 }
+
+.menu__input:checked + .menu__label {
+  color: var(--accent-c);
+  font-weight: 600;
+}
