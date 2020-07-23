@@ -11,13 +11,6 @@
   padding: 15px 10px;
 }
 
-.menu__controls {
-  align-items: center;
-  column-gap: 15px;
-  display: grid;
-  grid-auto-flow: column;
-}
-
 .menu__btn {
   border: none;
   background: none;
@@ -34,12 +27,6 @@
 
 .menu__btn-icon--active {
   stroke: var(--accent-c);
-}
-
-.menu__options {
-  column-gap: 10px;
-  display: grid;
-  grid-auto-flow: column;
 }
 
 .menu__label {
