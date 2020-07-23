@@ -1,27 +1,76 @@
 .catalog {
-  display: grid;
+  overflow-x: hidden;
 }
 
 .catalog-item__title {
   color: var(--text-c);
   font-size: var(--large-fz);
+  margin: 0 0 0 15px;
   text-decoration: underline;
 }
 
 .catalog-item__price {
   font-size: var(--small-fz);
+  margin: 0 0 10px 15px;
+}
+
+.catalog-item__wrapper {
+  position: relative;
+  width: 100vw;
 }
 
 .catalog-item__img-block {
   display: flex;
-  height: 135px;
-  overflow: hidden;
+  transform: translateX(-203px);
 }
 
-.catalog-item__img--active {
-  flex-basis: 80%;
- }
-
 .catalog-item__img {
-  flex-basis: 100%;
+  filter: blur(2px);
+}
+
+.catalog-item__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 82px;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+
+.catalog-item__btn:hover > .catalog-item__arrow {
+  stroke: var(--hover-c);
+  transform: scale(1.05);
+}
+
+.catalog-item__btn:active > .catalog-item__arrow {
+  stroke: var(--accent-c);
+}
+
+.catalog-item__btn--left {
+  left: 10px;
+}
+
+.catalog-item__btn--right {
+  right: 10px;
+}
+
+.catalog-item__description {
+  column-gap: 30px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.catalog-item__mileage {
+  margin: 0;
+}
+
+.catalog-item__characteristics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

@@ -12,10 +12,32 @@
     <div class="catalog-item">
       <h2 class="catalog-item__title"><a href="#">BMW 5 series</a></h2>
       <p class="catalog-item__price">от 75 000 ₽ / мес.</p>
-      <div class="catalog-item__img-block">
-        <img src="./img/car-bmw.jpg" class="catalog-item__img" alt="BMW 5 series">
-        <img src="./img/car-bmw.jpg" class="catalog-item__img--active" alt="BMW 5 series">
-        <img src="./img/car-bmw.jpg" class="catalog-item__img" alt="BMW 5 series">
+      <div class="catalog-item__wrapper">
+        <div class="catalog-item__img-block">
+          <img src="./img/car-bmw.jpg" class="catalog-item__img" alt="BMW 5 series" height="135px" width="255px">
+          <img src="./img/car-bmw.jpg" alt="BMW 5 series" height="135px" width="255px">
+          <img src="./img/car-bmw.jpg" class="catalog-item__img" alt="BMW 5 series" height="135px" width="255px">
+        </div>
+        <button class="catalog-item__btn catalog-item__btn--left" type="button" aria-label="стрелка влево">
+          <svg class="catalog-item__arrow" width="18" height="82" viewBox="0 0 18 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
+            <line x1="15.9391" y1="0.343582" x2="0.939123" y2="41.3436" stroke-width="2"/>
+            <line x1="16.0626" y1="81.343" x2="1.0592" y2="40.3443" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="catalog-item__btn catalog-item__btn--right" type="button" aria-label="стрелка вправо">
+          <svg class="catalog-item__arrow" width="17" height="82" viewBox="0 0 17 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
+            <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343547 0.939135 0.93911 -0.343616 2.0016 0)" stroke-width="2"/>
+            <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343625 -0.939107 -0.939082 -0.343694 0.000106812 81)" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+      <div class="catalog-item__description">
+        <p class="catalog-item__mileage">Пробег<br>в месяц 4000 км,<br>полгода 25 000 км,<br>год 60 000 км</p>
+        <ul class="catalog-item__characteristics">
+          <li>седан</li>
+          <li>дизель</li>
+          <li>250 л.с.</li>
+        </ul>
       </div>
     </div>
   </section>
