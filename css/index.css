@@ -39,3 +39,11 @@
   margin: 0;
   text-align: center;
 }
+
+a.footer__link {
+  color: var(--border-c);
+}
+
+a.footer__link:hover {
+  color: var(--hover-c);
+}
