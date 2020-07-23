@@ -14,6 +14,7 @@
   --nomral-fw: normal;
   --small-fz: 18px;
   --text-c: #f2f2f2;
+  --visited-link-c: #dfdfdf;
 }
 
 *, ::before, ::after {
@@ -35,11 +36,15 @@ a:link {
   transition: 0.2s;
 }
 
-a:link:hover {
+a:link:hover, a:visited:hover {
   color: var(--hover-c);
   transform: scale(1.05);
 }
 
 a:link:active {
   color: var(--accent-c);
+}
+
+a:visited {
+  color: var(--visited-link-c);
 }
