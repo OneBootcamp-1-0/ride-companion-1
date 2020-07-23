@@ -1,10 +1,10 @@
 .header {
-  background-image: url(../img/header-bg.jpg);
+  background-image: url("../img/header-bg.jpg");
   background-position: center;
   background-size: cover;
   display: grid;
   justify-items: center;
-  padding: 30px 30px 15px;
+  padding: 30px 10px 15px;
 }
 
 .header__tagline {
@@ -32,4 +32,10 @@
   display: grid;
   justify-items: center;
   padding: 10px 65px 15px;
+}
+
+.footer__copyright,
+.footer__year {
+  margin: 0;
+  text-align: center;
 }
