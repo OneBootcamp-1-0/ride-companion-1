@@ -2,7 +2,6 @@
   display: grid;
   list-style-type: none;
   margin: 0;
-  overflow: hidden;
   padding: 15px 40px;
   row-gap: 10px;
 }
@@ -13,15 +12,14 @@
 
 .sort-list__label {
   cursor: pointer;
-  display: block;
+  display: inline-block;
   text-decoration: underline;
+  transition: 0.2s;
 }
 
 .sort-list__label:hover {
   color: var(--hover-c);
   transform: scale(1.05);
-  transform-origin: left;
-  transition: 0.2s;
 }
 
 .sort-list__input:checked + .sort-list__label {
