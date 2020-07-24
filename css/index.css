@@ -1,143 +1,34 @@
-.header {
-  background-color: var(--header-bg-c);
-  background-image: url("../img/header-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
+.sort-list {
   display: grid;
-  justify-items: center;
-  padding: 30px 10px 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 40px;
   row-gap: 10px;
 }
 
-.header__tagline {
-  color: #000000;
-  margin: 0;
-  max-width: 220px;
-  text-align: center;
+.sort-list__input {
+  display: none;
 }
 
-.header__tagline::first-letter,
-.footer__copyright::first-letter {
-  text-transform: lowercase;
-}
-
-.header__title {
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
-}
-
-.footer {
-  border-top: 1px solid var(--light-bg-c);
-  color: var(--border-c);
-  display: grid;
-  justify-items: center;
-  padding: 10px 50px 15px;
-}
-
-.footer__copyright,
-.footer__year {
-  margin: 0;
-  text-align: center;
-}
-
-a.footer__link {
-  color: var(--border-c);
-}
-
-a.footer__link:hover {
-  color: var(--hover-c);
-}
-
-.catalog {
-  display: grid;
-  justify-content: center;
-}
-
-.catalog-item {
-  column-gap: 30px;
-  display: grid;
-  grid-template-columns: max-content 1fr;
-}
-
-.catalog-item__title {
-  color: var(--text-c);
-  font-size: var(--large-fz);
-  grid-column: 1 / -1;
-  margin: 0 0 0 15px;
-}
-
-.catalog-item__price {
-  font-size: var(--small-fz);
-  grid-column: 1 / -1;
-  margin: 0 0 10px 15px;
-}
-
-.carousel {
-  grid-column: 1 / -1;
-  width: 320px;
-  min-width: 320px;
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel__list {
-  display: flex;
-  transform: translateX(-224px);
-}
-
-.carousel__img {
-  filter: blur(2px);
-}
-
-.carousel__btn {
-  background: none;
-  border: none;
+.sort-list__label {
   cursor: pointer;
-  height: 82px;
-  position: absolute;
-  padding: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-}
-
-.carousel__arrow {
+  display: inline-block;
+  text-decoration: underline;
   transition: 0.2s;
 }
 
-.carousel__btn:hover .carousel__arrow {
-  stroke: var(--hover-c);
+.sort-list__label:hover {
+  color: var(--hover-c);
   transform: scale(1.05);
 }
 
-.carousel__btn:active .carousel__arrow {
-  stroke: var(--accent-c);
+.sort-list__input:checked + .sort-list__label {
+  color: var(--accent-c);
+  font-weight: var(--medium-fw);
+  text-decoration: none;
 }
 
-.carousel__btn--left {
-  left: 10px;
-}
-
-.carousel__btn--right {
-  right: 10px;
-}
-
-.catalog-item__mileage {
-  margin: 10px 0 0 15px;
-}
-
-.catalog-item__mileage-title {
-  font-weight: 600;
-}
-
-.catalog-item__milage-tariff {
-  margin: 0;
-}
-
-.catalog-item__characteristics {
-  list-style: none;
-  margin: 10px 0 0 0;
-  padding: 0;
+.sort-list__input:checked + .sort-list__label:hover {
+  cursor: default;
+  transform: none;
 }

@@ -8,50 +8,27 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <header class="header">
-    <h1 class="header__title">Ride companion — Лучший в России сервис подписки на автомобили.</h1>
-    <img src="./img/logo.svg" width="273" height="69" alt="Ride Companion">
-    <p class="header__tagline">Лучший в России сервис подписки на автомобили</p>
-  </header>
-  <section class="catalog">
-    <article class="catalog-item">
-      <h3 class="catalog-item__title"><a href="#">BMW 5 series</a></h3>
-      <p class="catalog-item__price">от 75 000 ₽ / мес.</p>
-      <div class="carousel">
-        <div class="carousel__list">
-          <img src="./img/car-bmw.jpg" class="carousel__img" alt="BMW 5 series" height="135px" width="255px">
-          <img src="./img/car-bmw.jpg" alt="BMW 5 series" height="135px" width="255px">
-          <img src="./img/car-bmw.jpg" class="carousel__img" alt="BMW 5 series" height="135px" width="255px">
-        </div>
-        <button class="carousel__btn carousel__btn--left" type="button" aria-label="предыдущий слайд">
-          <svg class="carousel__arrow" width="18" height="82" viewBox="0 0 18 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
-            <line x1="15.9391" y1="0.343582" x2="0.939123" y2="41.3436" stroke-width="2"/>
-            <line x1="16.0626" y1="81.343" x2="1.0592" y2="40.3443" stroke-width="2"/>
-          </svg>
-        </button>
-        <button class="carousel__btn carousel__btn--right" type="button" aria-label="следующий слайд">
-          <svg class="carousel__arrow" width="17" height="82" viewBox="0 0 17 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
-            <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343547 0.939135 0.93911 -0.343616 2.0016 0)" stroke-width="2"/>
-            <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343625 -0.939107 -0.939082 -0.343694 0.000106812 81)" stroke-width="2"/>
-          </svg>
-        </button>
-      </div>
-      <dl class="catalog-item__mileage">
-        <dt class="catalog-item__mileage-title">Пробег</dt>
-        <dd class="catalog-item__milage-tariff">в месяц 4000 км,</dd>
-        <dd class="catalog-item__milage-tariff">полгода 25 000 км,</dd>
-        <dd class="catalog-item__milage-tariff">год 60 000 км</dd>
-      </dl>
-      <ul class="catalog-item__characteristics">
-        <li>седан</li>
-        <li>дизель</li>
-        <li>250 л.с.</li>
+      <ul class="sort-list">
+        <li>
+          <input type="radio" id="recommended" name="sort" class="sort-list__input">
+          <label class="sort-list__label" for="recommended">Сначала рекомендованные</label>
+        </li>
+        <li>
+          <input type="radio" id="expensive" name="sort" class="sort-list__input">
+          <label class="sort-list__label" for="expensive">Сначала дорогие</label>
+        </li>
+        <li>
+          <input type="radio" id="cheap" name="sort" class="sort-list__input">
+          <label class="sort-list__label" for="cheap">Сначала более дешевые</label>
+        </li>
+        <li>
+          <input type="radio" id="economic" name="sort" class="sort-list__input">
+          <label class="sort-list__label" for="economic">Сначала экономные</label>
+        </li>
+        <li>
+          <input type="radio" id="powerful" name="sort" class="sort-list__input">
+          <label class="sort-list__label" for="powerful">Сначала более мощные</label>
+        </li>
       </ul>
-    </article>
-  </section>
-  <footer class="footer">
-    <p class="footer__copyright">Сделано на буткемпе&ensp;<a class="footer__link" href="http://oneboot.camp/">OneBootcamp</a></p>
-    <p class="footer__year">2020</p>
-  </footer>
 </body>
 </html>
