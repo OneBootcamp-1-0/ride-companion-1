@@ -1,3 +1,121 @@
+.header {
+  background-color: var(--header-bg-c);
+  background-image: url("../img/header-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  justify-items: center;
+  padding: 30px 10px 15px;
+  row-gap: 10px;
+}
+
+.header__tagline {
+  color: #000000;
+  margin: 0;
+  max-width: 220px;
+  text-align: center;
+}
+
+.header__tagline::first-letter,
+.footer__copyright::first-letter {
+  text-transform: lowercase;
+}
+
+.header__title {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.sort-list {
+  display: grid;
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 40px;
+  row-gap: 10px;
+}
+
+.sort-list__input {
+  display: none;
+}
+
+.sort-list__label {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+.sort-list__label:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+}
+
+.sort-list__input:checked + .sort-list__label {
+  color: var(--accent-c);
+  font-weight: var(--medium-fw);
+  text-decoration: none;
+}
+
+.sort-list__input:checked + .sort-list__label:hover {
+  cursor: default;
+  transform: none;
+}
+
+.menu {
+  column-gap: 10px;
+  display: grid;
+  font-size: 18px;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 auto;
+  max-width: 600px;
+  overflow-x: auto;
+  padding: 15px 10px;
+}
+
+.menu__btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  transform: translateY(1px);
+}
+
+.menu__btn--sort {
+  transform: translateY(2px);
+}
+
+.menu__btn-icon:hover {
+  stroke: var(--hover-c);
+  transition: 0.2s;
+  transform: scale(1.05);
+}
+
+.menu__btn-icon--active {
+  stroke: var(--accent-c);
+}
+
+.menu__label {
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.2s;
+  text-decoration: underline;
+}
+
+.menu__input {
+  display: none;
+}
+
+.menu__input:checked + .menu__label {
+  color: var(--accent-c);
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .filter {
   display: grid;
   gap: 15px;
@@ -100,4 +218,118 @@
 
 .filter-price__input[type=number] {
   -moz-appearance: textfield;
+}
+
+.carousel {
+  grid-column: 1 / -1;
+  width: 320px;
+  min-width: 320px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel__list {
+  display: flex;
+  transform: translateX(-224px);
+}
+
+.carousel__img {
+  filter: blur(2px);
+}
+
+.carousel__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 82px;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+
+.carousel__arrow {
+  transition: 0.2s;
+}
+
+.carousel__btn:hover .carousel__arrow {
+  stroke: var(--hover-c);
+  transform: scale(1.05);
+}
+
+.carousel__btn:active .carousel__arrow {
+  stroke: var(--accent-c);
+}
+
+.carousel__btn--left {
+  left: 10px;
+}
+
+.carousel__btn--right {
+  right: 10px;
+}
+  
+.catalog {
+  display: grid;
+  justify-content: center;
+}
+
+.catalog-item {
+  column-gap: 30px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.catalog-item__title {
+  color: var(--text-c);
+  font-size: var(--large-fz);
+  grid-column: 1 / -1;
+  margin: 0 0 0 15px;
+}
+
+.catalog-item__price {
+  font-size: var(--small-fz);
+  grid-column: 1 / -1;
+  margin: 0 0 10px 15px;
+}
+
+.catalog-item__mileage {
+  margin: 10px 0 0 15px;
+}
+
+.catalog-item__mileage-title {
+  font-weight: 600;
+}
+
+.catalog-item__milage-tariff {
+  margin: 0;
+}
+
+.catalog-item__characteristics {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+  
+.footer {
+  border-top: 1px solid var(--light-bg-c);
+  color: var(--border-c);
+  display: grid;
+  justify-items: center;
+  padding: 10px 50px 15px;
+}
+
+.footer__copyright,
+.footer__year {
+  margin: 0;
+  text-align: center;
+}
+
+a.footer__link {
+  color: var(--border-c);
+}
+
+a.footer__link:hover {
+  color: var(--hover-c);
 }
