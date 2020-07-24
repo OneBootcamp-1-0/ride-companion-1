@@ -2,7 +2,6 @@
   color: var(--text-c);
   font-size: var(--large-fz);
   margin: 0 0 0 15px;
-  text-decoration: underline;
 }
 
 .catalog-item__price {
