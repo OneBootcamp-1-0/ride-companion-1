@@ -33,8 +33,9 @@
   margin: 0;
 }
 
-.filter__price {
+.filter__options--price {
   display: grid;
+  max-width: 215px;
   row-gap: 5px;
 }
 
