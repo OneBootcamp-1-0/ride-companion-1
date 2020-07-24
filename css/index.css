@@ -10,9 +10,9 @@
 }
 
 .slider {
-  position: relative;
-  width: 100vw;
+  max-width: 360px;
   overflow: hidden;
+  position: relative;
 }
 
 .slider__list {
