@@ -17,6 +17,7 @@
 
 .filter__label {
   cursor: pointer;
+  display: inline-block;
   transition: 0.2s;
   text-decoration: underline;
 }
