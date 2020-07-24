@@ -36,6 +36,10 @@
   width: 16px;
 }
 
+.catalog-item__arrow {
+  transition: 0.2s;
+}
+
 .catalog-item__btn:hover .catalog-item__arrow {
   stroke: var(--hover-c);
   transform: scale(1.05);
