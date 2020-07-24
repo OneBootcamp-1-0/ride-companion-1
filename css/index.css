@@ -29,7 +29,6 @@
 }
 
 .sort-list__input:checked + .sort-list__label:hover {
-  color: var(--accent-c);
   cursor: default;
   transform: none;
 }
