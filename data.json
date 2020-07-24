@@ -1,23 +1,24 @@
-{
-  "cars_list": [
-    {
-      "title": "BMW 5 series",
-      "price": "от 75 000 ₽ / мес.",
-      "images": [
-        "./img/car-bmw.jpg",
-        "./img/car-bmw.jpg",
-        "./img/car-bmw.jpg"
-      ],
-      "mileage": {
-        "month": "4000",
-        "half-year": "25000",
-        "year": "60000"
-      },
-        "characteristics": {
-        "type": "седан",
-        "engine": "дизель",
-        "power": "250 л.с."
-      }
+[
+  {
+    "name": {
+      "brand": "BMW",
+      "model": "5 series"
+    },
+    "min_price": 75000,
+    "images": [
+      "./img/car-bmw.jpg",
+      "./img/car-bmw.jpg",
+      "./img/car-bmw.jpg"
+    ],
+    "mileage": {
+      "month": 4000,
+      "half-year": 25000,
+      "year": 60000
+    },
+    "characteristics": {
+      "type": "sedan",
+      "engine": "diesel",
+      "power": 250
     }
-  ]
-}
+  }
+]
