@@ -70,6 +70,10 @@
   margin: 10px 0 0 15px;
 }
 
+.catalog-item__mileage-title {
+  font-weight: 600;
+}
+
 .catalog-item__characteristics {
   list-style: none;
   padding: 0;
