@@ -1,7 +1,3 @@
-.catalog {
-  overflow-x: hidden;
-}
-
 .catalog-item__title {
   color: var(--text-c);
   font-size: var(--large-fz);
@@ -17,6 +13,7 @@
 .catalog-item__wrapper {
   position: relative;
   width: 100vw;
+  overflow: hidden;
 }
 
 .catalog-item__img-block {
