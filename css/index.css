@@ -39,7 +39,7 @@
   row-gap: 5px;
 }
 
-.scale {
+.slider {
   background: var(--light-bg-c);
   border: 1px solid var(--border-c);
   border-radius: 100px;
@@ -49,7 +49,7 @@
   width: 215px;
 }
 
-.scale__bar {
+.slider__bar {
   background: linear-gradient(90deg, #F2994A 0%, rgba(242, 153, 74, 0) 100%);
   border: 1px solid var(--border-c);
   border-radius: 100px;
@@ -60,7 +60,7 @@
   width: 50%;
 }
 
-.scale__toggle {
+.slider__knob {
   background: var(--text-c);
   border-radius: 50%;
   display: block;
