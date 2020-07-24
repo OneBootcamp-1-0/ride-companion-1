@@ -1,3 +1,8 @@
+.catalog {
+  display: grid;
+  justify-content: center;
+}
+
 .catalog-item {
   column-gap: 30px;
   display: grid;
@@ -19,14 +24,15 @@
 
 .slider {
   grid-column: 1 / -1;
-  max-width: 360px;
+  max-width: 320px;
+  min-width: 320px;
   overflow: hidden;
   position: relative;
 }
 
 .slider__list {
   display: flex;
-  transform: translateX(-203px);
+  transform: translateX(-224px);
 }
 
 .slider__img {
