@@ -28,6 +28,41 @@
   width: 1px;
 }
 
+.sort-list {
+  display: grid;
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 40px;
+  row-gap: 10px;
+}
+
+.sort-list__input {
+  display: none;
+}
+
+.sort-list__label {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+.sort-list__label:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+}
+
+.sort-list__input:checked + .sort-list__label {
+  color: var(--accent-c);
+  font-weight: var(--medium-fw);
+  text-decoration: none;
+}
+
+.sort-list__input:checked + .sort-list__label:hover {
+  cursor: default;
+  transform: none;
+}
+
 .footer {
   border-top: 1px solid var(--light-bg-c);
   color: var(--border-c);
