@@ -49,3 +49,95 @@ a.footer__link {
 a.footer__link:hover {
   color: var(--hover-c);
 }
+
+.catalog {
+  display: grid;
+  justify-content: center;
+}
+
+.catalog-item {
+  column-gap: 30px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.catalog-item__title {
+  color: var(--text-c);
+  font-size: var(--large-fz);
+  grid-column: 1 / -1;
+  margin: 0 0 0 15px;
+}
+
+.catalog-item__price {
+  font-size: var(--small-fz);
+  grid-column: 1 / -1;
+  margin: 0 0 10px 15px;
+}
+
+.carousel {
+  grid-column: 1 / -1;
+  width: 320px;
+  min-width: 320px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel__list {
+  display: flex;
+  transform: translateX(-224px);
+}
+
+.carousel__img {
+  filter: blur(2px);
+}
+
+.carousel__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 82px;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+
+.carousel__arrow {
+  transition: 0.2s;
+}
+
+.carousel__btn:hover .carousel__arrow {
+  stroke: var(--hover-c);
+  transform: scale(1.05);
+}
+
+.carousel__btn:active .carousel__arrow {
+  stroke: var(--accent-c);
+}
+
+.carousel__btn--left {
+  left: 10px;
+}
+
+.carousel__btn--right {
+  right: 10px;
+}
+
+.catalog-item__mileage {
+  margin: 10px 0 0 15px;
+}
+
+.catalog-item__mileage-title {
+  font-weight: 600;
+}
+
+.catalog-item__milage-tariff {
+  margin: 0;
+}
+
+.catalog-item__characteristics {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
