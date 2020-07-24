@@ -22,7 +22,7 @@
   margin: 0 0 10px 15px;
 }
 
-.slider {
+.carousel {
   grid-column: 1 / -1;
   max-width: 320px;
   min-width: 320px;
@@ -30,16 +30,16 @@
   position: relative;
 }
 
-.slider__list {
+.carousel__list {
   display: flex;
   transform: translateX(-224px);
 }
 
-.slider__img {
+.carousel__img {
   filter: blur(2px);
 }
 
-.slider__btn {
+.carousel__btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -51,24 +51,24 @@
   width: 16px;
 }
 
-.slider__arrow {
+.carousel__arrow {
   transition: 0.2s;
 }
 
-.slider__btn:hover .slider__arrow {
+.carousel__btn:hover .carousel__arrow {
   stroke: var(--hover-c);
   transform: scale(1.05);
 }
 
-.slider__btn:active .slider__arrow {
+.carousel__btn:active .carousel__arrow {
   stroke: var(--accent-c);
 }
 
-.slider__btn--left {
+.carousel__btn--left {
   left: 10px;
 }
 
-.slider__btn--right {
+.carousel__btn--right {
   right: 10px;
 }
 
