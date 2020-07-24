@@ -13,8 +13,7 @@
     <img src="./img/logo.svg" width="273" height="69" alt="Ride Companion">
     <p class="header__tagline">Лучший в России сервис подписки на автомобили</p>
   </header>
-
-  <ul class="menu">
+   <ul class="menu">
     <li>
       <button aria-label="Фильтрация" type="button" class="menu__btn">
         <svg class="menu__btn-icon" stroke="#F2F2F2" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,8 +51,8 @@
       <label class="menu__label" for="luxe">Люкс</label>
     </li>
   </ul>
-
-  <ul class="sort-list">
+  
+    <ul class="sort-list">
     <li>
       <input type="radio" id="recommended" name="sort" class="sort-list__input">
       <label class="sort-list__label" for="recommended">Сначала рекомендованные</label>
@@ -75,7 +74,68 @@
       <label class="sort-list__label" for="powerful">Сначала более мощные</label>
     </li>
   </ul>
+  
+  <dl class="filter">
+    <dt>тип кузова</dt>
+    <dd class="filter__options">
+        <input class="filter__radio-input" name="car-type" id="car-type-any" type="radio" checked>
+        <label class="filter__label" for="car-type-any">любой</label>
 
+        <input class="filter__radio-input" name="car-type" id="sedan" type="radio">
+        <label class="filter__label" for="sedan">седан</label>
+
+        <input class="filter__radio-input" name="car-type" id="estate" type="radio">
+        <label class="filter__label" for="estate">универсал</label>
+
+        <input class="filter__radio-input" name="car-type" id="hatchback" type="radio">
+        <label class="filter__label" for="hatchback">хэтчбек</label>
+
+        <input class="filter__radio-input" name="car-type" id="suv" type="radio">
+        <label class="filter__label" for="suv">внедорожник</label>
+
+        <input class="filter__radio-input" name="car-type" id="coupe" type="radio">
+        <label class="filter__label" for="coupe">купе</label>
+
+        <input class="filter__radio-input" name="car-type" id="cabriolet" type="radio">
+        <label class="filter__label" for="cabriolet">кабриолет</label>
+    </dd>
+    <dt>мощность</dt>
+    <dd class="filter__options">
+        <input class="filter__radio-input" name="power" id="power-all" type="radio" checked>
+        <label class="filter__label" for="power-all">все</label>
+
+        <input class="filter__radio-input" name="power" id="from-100" type="radio">
+        <label class="filter__label" for="from-100">от 100 л.с.</label>
+
+        <input class="filter__radio-input" name="power" id="from-150" type="radio">
+        <label class="filter__label" for="from-150">от 150 л.с.</label>
+
+        <input class="filter__radio-input" name="power" id="from-200" type="radio">
+        <label class="filter__label" for="from-200">от 200 л.с.</label>
+    <dt>топливо</dt>
+    <dd class="filter__options">
+        <input class="filter__radio-input" name="fuel" id="fuel-all" type="radio" checked>
+        <label class="filter__label" for="fuel-all">все</label>
+
+        <input class="filter__radio-input" name="fuel" id="petrol" type="radio">
+        <label class="filter__label" for="petrol">бензин</label>
+
+        <input class="filter__radio-input" name="fuel" id="diesel" type="radio">
+        <label class="filter__label" for="diesel">дизель</label>
+
+        <input class="filter__radio-input" name="fuel" id="electro" type="radio">
+        <label class="filter__label" for="electro">электро</label>
+    </dd>
+    <dt>стоимость</dt>
+    <dd class="filter__options filter__options--price">
+      <div class="slider">
+        <div class="slider__bar"></div>
+        <span class="slider__knob"></span>
+      </div>
+      <div class="filter-price__display">от <input type="number" min="10000" max="100000" step="5000" value="10000" class="filter-price__input"> ₽ / мес.</div>
+    </dd>
+  </dl>
+  
   <section class="catalog">
     <article class="catalog-item">
       <h3 class="catalog-item__title"><a href="#">BMW 5 series</a></h3>
