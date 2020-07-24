@@ -30,7 +30,7 @@ body {
 }
 
 a:link {
-  color: inherit;
+  color: var(--text-c);
   display: inline-block;
   transition: 0.2s;
 }

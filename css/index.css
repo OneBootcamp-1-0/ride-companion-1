@@ -5,7 +5,6 @@
   overflow: hidden;
   padding: 15px 40px;
   row-gap: 10px;
-
 }
 
 .sort-list__input {
@@ -22,9 +21,17 @@
   color: var(--hover-c);
   transform: scale(1.05);
   transform-origin: left;
+  transition: 0.2s;
 }
 
 .sort-list__input:checked + .sort-list__label {
   color: var(--accent-c);
+  font-weight: var(--medium-fw);
   text-decoration: none;
+}
+
+.sort-list__input:checked + .sort-list__label:hover {
+  color: var(--accent-c);
+  cursor: default;
+  transform: none;
 }
