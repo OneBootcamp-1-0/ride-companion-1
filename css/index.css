@@ -36,12 +36,12 @@
   width: 16px;
 }
 
-.catalog-item__btn:hover > .catalog-item__arrow {
+.catalog-item__btn:hover .catalog-item__arrow {
   stroke: var(--hover-c);
   transform: scale(1.05);
 }
 
-.catalog-item__btn:active > .catalog-item__arrow {
+.catalog-item__btn:active .catalog-item__arrow {
   stroke: var(--accent-c);
 }
 
