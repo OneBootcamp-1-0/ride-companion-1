@@ -55,3 +55,12 @@ const createTemplate = ({brand, model, min_price, images, mileage, characteristi
   </ul>`
   return car
 }
+
+const renderTemplate = () => {
+  const container = document.querySelector('.catalog')
+  data.map((car) => {
+    container.append(createTemplate(car))
+  })
+}
+
+renderTemplate()
