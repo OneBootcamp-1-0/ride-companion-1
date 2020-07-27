@@ -1,33 +1,29 @@
-const createTemplate = ({brand, model, min_price, images, mileage, characteristics}) => {
-  const characteristicsRu = {
-    type: {
-      any: 'любой',
-      sedan: 'седан',
-      estate: 'универсал',
-      hatchback: 'хэтчбек',
-      suv: 'внедорожник',
-      coupe: 'купе',
-      cabriolet: 'кабриолет'
-    },
-    engine: {
-      all: 'все',
-      petrol: 'бензин',
-      diesel: 'дизель',
-      electric: 'электро'
-    }
+const characteristicsRu = {
+  type: {
+    any: 'любой',
+    sedan: 'седан',
+    estate: 'универсал',
+    hatchback: 'хэтчбек',
+    suv: 'внедорожник',
+    coupe: 'купе',
+    cabriolet: 'кабриолет'
+  },
+  engine: {
+    all: 'все',
+    petrol: 'бензин',
+    diesel: 'дизель',
+    electric: 'электро'
   }
-  const makeImages = () => {
-    return images.map((img, i) => {
-      return `<img src="${img}" class="${i === 1 ? "" : "carousel__img"}" alt="${brand} ${model}" height="135px" width="255px">`
-    }).join('')
-  }
-  const car = document.createElement('article')
-  car.classList.add('catalog-item')
-  car.innerHTML = `<h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
-  <p class="catalog-item__price">от ${min_price} ₽ / мес.</p>
-  <div class="carousel">
+}
+
+const makeImages = (imgaes, brand, model) => imgaes.map(url =>
+  `<img src="${url}" class="carousel__img" alt="${brand} ${model}" height="135px" width="255px">`
+).join('')
+
+const createCarouselElement = (images, brand, model) => {
+  return `<div class="carousel">
     <div class="carousel__list">
-      ${makeImages()}
+      ${makeImages(images, brand, model)}
     </div>
     <button class="carousel__btn carousel__btn--left" type="button" aria-label="предыдущий слайд">
       <svg class="carousel__arrow" width="18" height="82" viewBox="0 0 18 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
@@ -41,26 +37,30 @@ const createTemplate = ({brand, model, min_price, images, mileage, characteristi
         <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343625 -0.939107 -0.939082 -0.343694 0.000106812 81)" stroke-width="2"/>
       </svg>
     </button>
-  </div>
+  </div>`
+}
+
+const createCarElement = ({ brand, model, minPrice, images, mileage, characteristics }) => `<article class="catalog-item">
+  <h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
+  <p class="catalog-item__price">от ${minPrice} ₽ / мес.</p>
+  ${createCarouselElement(images, brand, model)}
   <dl class="catalog-item__mileage">
     <dt class="catalog-item__mileage-title">Пробег</dt>
-    <dd class="catalog-item__milage-tariff">в месяц ${mileage.month} км,</dd>
-    <dd class="catalog-item__milage-tariff">полгода ${mileage['half-year']} км,</dd>
-    <dd class="catalog-item__milage-tariff">год ${mileage.year} км</dd>
+    ${!mileage.month ? '' : `<dd class="catalog-item__milage-tariff">в месяц ${mileage.month} км,</dd>`}
+    ${!mileage.halfYear ? '' : `<dd class="catalog-item__milage-tariff">полгода ${mileage.halfYear} км,</dd>`}
+    ${!mileage.halfYear ? '' : `<dd class="catalog-item__milage-tariff">год ${mileage.year} км</dd>`}
   </dl>
   <ul class="catalog-item__characteristics">
     <li>${characteristicsRu.type[characteristics.type]}</li>
     <li>${characteristicsRu.engine[characteristics.engine]}</li>
     <li>${characteristics.power} л.с.</li>
-  </ul>`
-  return car
-}
+  </ul></article>`
 
-const renderTemplate = () => {
+const renderTemplate = data => {
   const container = document.querySelector('.catalog')
-  data.map((car) => {
-    container.append(createTemplate(car))
+  data.forEach(car => {
+    container.innerHTML += createCarElement(car)
   })
 }
 
-renderTemplate()
+renderTemplate(data)
