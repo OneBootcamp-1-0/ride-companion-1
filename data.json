@@ -1,9 +1,7 @@
 [
   {
-    "name": {
-      "brand": "BMW",
-      "model": "5 series"
-    },
+    "brand": "BMW",
+    "model": "5 series",
     "min_price": 75000,
     "images": [
       "./img/car-bmw.jpg",
