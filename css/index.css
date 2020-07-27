@@ -233,8 +233,17 @@
   transform: translateX(-224px);
 }
 
+.carousel__list--single {
+  transform: translateX(0);
+}
+
 .carousel__img {
   filter: blur(2px);
+}
+
+.carousel__img--single {
+  margin: 0 auto;
+  filter: blur(0);
 }
 
 .carousel__btn {
@@ -269,7 +278,7 @@
 .carousel__btn--right {
   right: 10px;
 }
-  
+
 .catalog {
   display: grid;
   justify-content: center;
@@ -311,7 +320,7 @@
   margin: 10px 0 0 0;
   padding: 0;
 }
-  
+
 .footer {
   border-top: 1px solid var(--light-bg-c);
   color: var(--border-c);
