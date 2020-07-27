@@ -64,4 +64,4 @@ const data = [
       power: 230
     }
   }
-]
+];
