@@ -50,9 +50,9 @@ const createCarElement = ({ brand, model, images, minPrice, mileage, characteris
     ${!mileage.halfYear ? '' : `<dd class="catalog-item__milage-tariff">год ${mileage.year} км</dd>`}
   </dl>
   <ul class="catalog-item__characteristics">
-  ${!characteristics.type ? '' : `<li>${characteristicsRu.type[characteristics.type]}</li>`}
-  ${!characteristics.engine ? '' : `<li>${characteristicsRu.engine[characteristics.engine]}</li>`}
-  ${!characteristics.power ? '' : `<li>${characteristics.power} л.с.</li>`}
+    ${!characteristics.type ? '' : `<li>${characteristicsRu.type[characteristics.type]}</li>`}
+    ${!characteristics.engine ? '' : `<li>${characteristicsRu.engine[characteristics.engine]}</li>`}
+    ${!characteristics.power ? '' : `<li>${characteristics.power} л.с.</li>`}
   </ul></article>`;
 
 const renderTemplate = data => {
