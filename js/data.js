@@ -41,7 +41,6 @@ const data = [
       year: 600860
     },
     characteristics: {
-      type: 'hatchback',
       engine: 'electric',
       power: 300
     }
