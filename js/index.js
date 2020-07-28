@@ -53,7 +53,8 @@ const createCarElement = ({ brand, model, images, minPrice, mileage, characteris
     ${!characteristics.type ? '' : `<li>${characteristicsRu.type[characteristics.type]}</li>`}
     ${!characteristics.engine ? '' : `<li>${characteristicsRu.engine[characteristics.engine]}</li>`}
     ${!characteristics.power ? '' : `<li>${characteristics.power} л.с.</li>`}
-  </ul></article>`;
+  </ul>
+</article>`;
 
 const renderTemplate = data => {
   const container = document.querySelector('.catalog')
