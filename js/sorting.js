@@ -1,13 +1,13 @@
-const radioButtons = document.querySelectorAll('input[name=sort]');
+const radioButtons = document.querySelectorAll(`input[name=sort]`);
 
 radioButtons.forEach( (button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener(`click`, () => {
     switch (button.id) {
-      case 'recommended': {
+      case `recommended`: {
         renderTemplate(data);
         break;
       }
-      case 'expensive': {
+      case `expensive`: {
         const newData = [...data];
         newData.sort( (a, b) => {
           return b.minPrice-a.minPrice;
@@ -15,7 +15,7 @@ radioButtons.forEach( (button) => {
         renderTemplate(newData);
         break;
       }
-      case 'cheap': {
+      case `cheap`: {
         const newData = [...data];
         newData.sort( (a, b) => {
           return a.minPrice-b.minPrice;
@@ -23,7 +23,7 @@ radioButtons.forEach( (button) => {
         renderTemplate(newData);
         break;
       }
-      case 'economic': {
+      case `economic`: {
         const newData = [...data];
         newData.sort( (a, b) => {
           return a.characteristics.power-b.characteristics.power;
@@ -31,7 +31,7 @@ radioButtons.forEach( (button) => {
         renderTemplate(newData);
         break;
       }
-      case 'powerful': {
+      case `powerful`: {
         const newData = [...data];
         newData.sort( (a, b) => {
           return b.characteristics.power-a.characteristics.power;
