@@ -1,3 +1,5 @@
+const container = document.querySelector(`.catalog`);
+
 const data = [
   {
     brand: `BMW`,
@@ -84,11 +86,10 @@ const characteristicsRu = {
 };
 
 const makeImages = (images, imgAlt) => images.map((url) =>
-  `<img src="${url}" class=${images.length === 1 ? `carousel__img--single` : `carousel__img`} alt="${imgAlt}" height="135px" width="255px">`
+  `<img src="${url}" class="${images.length === 1 ? `carousel__img--single` : `carousel__img`}" alt="${imgAlt}" height="135px" width="255px">`
 ).join(``);
 
-const createCarouselElement = (images, imgAlt) => {
-  return `<div class="carousel">
+const createCarouselElement = (images, imgAlt) => `<div class="carousel">
     <div class="${images.length === 1 ? `carousel__list carousel__list--single` : `carousel__list`}">
       ${makeImages(images, imgAlt)}
     </div>
@@ -105,7 +106,7 @@ const createCarouselElement = (images, imgAlt) => {
       </svg>
     </button>`}
   </div>`;
-};
+
 const createCarElement = ({brand, model, images, minPrice, mileage, characteristics}) => `<article class="catalog-item">
   <h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
   <p class="catalog-item__price">от ${minPrice} ₽ / мес.</p>
@@ -124,7 +125,6 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
 </article>`;
 
 const renderTemplate = (cars) => {
-  const container = document.querySelector(`.catalog`);
   cars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
