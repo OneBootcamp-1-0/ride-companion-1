@@ -1,32 +1,98 @@
-import data from "./data.js";
+const data = [
+  {
+    brand: `BMW`,
+    model: `5 series`,
+    minPrice: 75000,
+    images: [
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`
+    ],
+    mileage: {
+      month: 4000,
+      halfYear: 25000,
+      year: 60000
+    },
+    characteristics: {
+      type: `sedan`,
+      engine: `diesel`,
+      power: 250
+    }
+  },
+  {
+    brand: `Audi`,
+    model: `A5`,
+    minPrice: 480980,
+    images: [
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`,
+      `./img/car-bmw.jpg`
+    ],
+    mileage: {
+      month: null,
+      halfYear: 256000,
+      year: 600860
+    },
+    characteristics: {
+      engine: `electric`,
+      power: 300
+    }
+  },
+  {
+    brand: `KIA`,
+    model: `Rio`,
+    minPrice: 50000,
+    images: [
+      `./img/car-bmw.jpg`
+    ],
+    mileage: {
+      month: 3208,
+      halfYear: 21000,
+      year: 50000
+    },
+    characteristics: {
+      type: `coupe`,
+      engine: `petrol`,
+      power: 230
+    }
+  }
+];
+
 const characteristicsRu = {
   type: {
-    any: "любой",
-    sedan: "седан",
-    estate: "универсал",
-    hatchback: "хэтчбек",
-    suv: "внедорожник",
-    coupe: "купе",
-    cabriolet: "кабриолет"
+    any: `любой`,
+    sedan: `седан`,
+    estate: `универсал`,
+    hatchback: `хэтчбек`,
+    suv: `внедорожник`,
+    coupe: `купе`,
+    cabriolet: `кабриолет`
   },
   engine: {
-    all: "все",
-    petrol: "бензин",
-    diesel: "дизель",
-    electric: "электро"
+    all: `все`,
+    petrol: `бензин`,
+    diesel: `дизель`,
+    electric: `электро`
   }
 };
 
 const makeImages = (images, imgAlt) => images.map((url) =>
-  `<img src="${url}" class=${images.length === 1 ? "carousel__img--single" : "carousel__img"} alt="${imgAlt}" height="135px" width="255px">`
-).join("");
+  `<img src="${url}" class=${images.length === 1 ? `carousel__img--single` : `carousel__img`} alt="${imgAlt}" height="135px" width="255px">`
+).join(``);
 
 const createCarouselElement = (images, imgAlt) => {
   return `<div class="carousel">
-    <div class="${images.length === 1 ? "carousel__list carousel__list--single" : "carousel__list"}">
+    <div class="${images.length === 1 ? `carousel__list carousel__list--single` : `carousel__list`}">
       ${makeImages(images, imgAlt)}
     </div>
-    ${images.length === 1 ? "" : `<button class="carousel__btn carousel__btn--left" type="button" aria-label="предыдущий слайд">
+    ${images.length === 1 ? `` : `<button class="carousel__btn carousel__btn--left" type="button" aria-label="предыдущий слайд">
       <svg class="carousel__arrow" width="18" height="82" viewBox="0 0 18 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
         <line x1="15.9391" y1="0.343582" x2="0.939123" y2="41.3436" stroke-width="2"/>
         <line x1="16.0626" y1="81.343" x2="1.0592" y2="40.3443" stroke-width="2"/>
@@ -46,20 +112,20 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   ${createCarouselElement(images, `${brand} ${model}`)}
   <dl class="catalog-item__mileage">
     <dt class="catalog-item__mileage-title">Пробег</dt>
-    ${!mileage.month ? "" : `<dd class="catalog-item__milage-tariff">в месяц ${mileage.month} км,</dd>`}
-    ${!mileage.halfYear ? "" : `<dd class="catalog-item__milage-tariff">полгода ${mileage.halfYear} км,</dd>`}
-    ${!mileage.halfYear ? "" : `<dd class="catalog-item__milage-tariff">год ${mileage.year} км</dd>`}
+    ${!mileage.month ? `` : `<dd class="catalog-item__milage-tariff">в месяц ${mileage.month} км,</dd>`}
+    ${!mileage.halfYear ? `` : `<dd class="catalog-item__milage-tariff">полгода ${mileage.halfYear} км,</dd>`}
+    ${!mileage.halfYear ? `` : `<dd class="catalog-item__milage-tariff">год ${mileage.year} км</dd>`}
   </dl>
   <ul class="catalog-item__characteristics">
-    ${!characteristics.type ? "" : `<li>${characteristicsRu.type[characteristics.type]}</li>`}
-    ${!characteristics.engine ? "" : `<li>${characteristicsRu.engine[characteristics.engine]}</li>`}
-    ${!characteristics.power ? "" : `<li>${characteristics.power} л.с.</li>`}
+    ${!characteristics.type ? `` : `<li>${characteristicsRu.type[characteristics.type]}</li>`}
+    ${!characteristics.engine ? `` : `<li>${characteristicsRu.engine[characteristics.engine]}</li>`}
+    ${!characteristics.power ? `` : `<li>${characteristics.power} л.с.</li>`}
   </ul>
 </article>`;
 
-const renderTemplate = () => {
-  const container = document.querySelector(".catalog");
-  data.forEach((car) => {
+const renderTemplate = (cars) => {
+  const container = document.querySelector(`.catalog`);
+  cars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
 };
