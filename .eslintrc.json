@@ -7,8 +7,5 @@
     "es6": true,
     "browser": true
   },
-  "extends": "htmlacademy/es6",
-  "rules": {
-    "quotes": [2,  "double", { "allowTemplateLiterals": true }]
-  }
+  "extends": "htmlacademy/es6"
 }
