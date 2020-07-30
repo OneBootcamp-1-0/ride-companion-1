@@ -2,7 +2,7 @@ const radioButtons = document.querySelectorAll(`input[name=sort]`);
 const sortingForm = document.querySelector('.sort-list-form');
 
 sortingForm.addEventListener(`change`, (e) => {
-  const newData = [...data];
+  const newData = [...window.data];
   newData.sort((a, b) => {
     switch (e.target.id) {
       case `expensive`: {
