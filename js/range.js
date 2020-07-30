@@ -1,6 +1,6 @@
 const maxValue = 200000;
 const slider = document.querySelector(".slider");
-const output = document.querySelector(".value");
+const output = document.querySelector(".filter-price__input");
 
 output.value = slider.value;
 
