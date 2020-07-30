@@ -9,22 +9,10 @@ let carEngineActiveOption = `fuel-all`;
 let carPrice;
 
 const filterData = () => data.filter((car) => {
-  if(car.characteristics.type === carTypeActiveOption || carTypeActiveOption === `car-type-any`) {
-    return true
-  }
-})
-.filter((car) => {
-  if(car.characteristics.power >= carPowerActiveOption || carPowerActiveOption === `power-all`) {
-    return true
-  }
-})
-.filter((car) => {
-  if(car.characteristics.engine === carEngineActiveOption || carEngineActiveOption === `fuel-all`) {
-    return true
-  }
-})
-.filter((car) => {
-  if(car.minPrice >= carPrice) {
+  if((car.characteristics.type === carTypeActiveOption || carTypeActiveOption === `car-type-any`)
+  && (car.characteristics.power >= carPowerActiveOption || carPowerActiveOption === `power-all`)
+  && (car.characteristics.engine === carEngineActiveOption || carEngineActiveOption === `fuel-all`)
+  && car.minPrice >= carPrice) {
     return true
   }
 });
