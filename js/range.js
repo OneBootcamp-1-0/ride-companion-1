@@ -1,20 +1,22 @@
+const maxValue = 200000;
 const slider = document.querySelector(".slider");
-const knob = document.querySelector(".slider__knob")
+const output = document.querySelector(".value");
 
-const sliderInit = () => {
-  const valueMin = 5000;
-  const valueMax = 480000;
-  const valueNow = 10000;
+output.value = slider.value;
 
-  if (slider.getAttribute('aria-valuemin')) {
-    valueMin = +slider.getAttribute('aria-valuemin');
-  }
-  if (slider.getAttribute('aria-valuemax')) {
-    valueMax = +slider.getAttribute('aria-valuemax');
-  }
-  if (slider.getAttribute('aria-valuenow')) {
-    valueNow = +slider.getAttribute('aria-valuenow');
-  }
+slider.oninput = function() {
+  output.value = this.value;
 }
 
+output.oninput = function() {
+  slider.value = this.value;
+}
 
+const moveBg = () => {
+  let fill = slider.value * 100 / maxValue;
+  slider.style.backgroundSize = `calc(${100 - fill}% + ${2}px) 100%`;
+}
+
+output.addEventListener("input", moveBg);
+
+slider.addEventListener("mousemove", moveBg)

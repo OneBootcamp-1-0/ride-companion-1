@@ -128,11 +128,9 @@
     </dd>
     <dt>стоимость</dt>
     <dd class="filter__options filter__options--price">
-      <div class="slider">
-        <div class="slider__bar"></div>
-        <span class="slider__knob" aria-valuemin="5000" aria-valuenow="10000" aria-valuemax="480000"></span>
+      <input type="range" min="5000" max="200000" value="10000" class="slider" step="5000" id="slider"> 
+      <div class="filter-price__display">от <input type="number" min="5000" max="200000" value="10000" class="filter-price__input value"> ₽ / мес.
       </div>
-      <div class="filter-price__display">от <input type="number" min="10000" max="100000" step="5000" value="10000" class="filter-price__input"> ₽ / мес.</div>
     </dd>
   </dl>
 
@@ -145,5 +143,6 @@
   <script src="./js/data.js"></script>
   <script src="./js/index.js"></script>
   <script src="./js/filtration.js"></script>
+  <script src="./js/range.js"></script>
 </body>
 </html>
