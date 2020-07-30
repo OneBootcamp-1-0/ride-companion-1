@@ -134,11 +134,13 @@
       </dd>
     </form>
     <dt>стоимость</dt>
-    <dd class="filter__options filter__options--price">
-      <input type="range" min="5000" max="200000" value="10000" class="slider" step="5000" id="slider">
-      <div class="filter-price__display">от <input type="number" min="5000" max="200000" value="10000" class="filter-price__input"> ₽ / мес.
-      </div>
-    </dd>
+    <form class="filter__form-price">
+      <dd class="filter__options filter__options--price">
+        <input type="range" min="5000" max="200000" value="10000" class="slider" step="5000" id="slider">
+        <div class="filter-price__display">от <input type="number" min="5000" max="200000" value="10000" class="filter-price__input"> ₽ / мес.
+        </div>
+      </dd>
+    </form>
   </dl>
 
   <section class="catalog"></section>
