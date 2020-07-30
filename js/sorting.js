@@ -1,4 +1,3 @@
-const radioButtons = document.querySelectorAll(`input[name=sort]`);
 const sortingForm = document.querySelector('.sort-list-form');
 
 sortingForm.addEventListener(`change`, (e) => {
