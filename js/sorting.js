@@ -1,38 +1,27 @@
 const radioButtons = document.querySelectorAll(`input[name=sort]`);
-const newData = [...data];
+const sortingForm = document.querySelector('.sort-list-form');
 
-radioButtons.forEach( (button) => {
-  button.addEventListener(`click`, () => {
-    switch (button.id) {
+sortingForm.addEventListener(`change`, (e) => {
+  const newData = [...data];
+  newData.sort((a, b) => {
+    switch (e.target.id) {
       case `expensive`: {
-        newData.sort( (a, b) => {
-          return b.minPrice-a.minPrice;
-        });
-        break;
+        return b.minPrice - a.minPrice;
       }
       case `cheap`: {
-        newData.sort( (a, b) => {
-          return a.minPrice-b.minPrice;
-        });
-        break;
+        return a.minPrice - b.minPrice;
       }
       case `economic`: {
-        newData.sort( (a, b) => {
-          return a.characteristics.power-b.characteristics.power;
-        });
-        break;
+        return a.characteristics.power - b.characteristics.power;
       }
       case `powerful`: {
-        newData.sort( (a, b) => {
-          return b.characteristics.power-a.characteristics.power;
-        });
-        break;
+        return b.characteristics.power - a.characteristics.power;
       }
-      default:
-        renderTemplate(data);
+      case `recommended`:
+      default: {
+        return false
+      }
     }
-    if (button.id !== `recommended`) {
-      renderTemplate(newData);
-    }
-  })
-})
+  });
+  renderTemplate(newData)
+});
