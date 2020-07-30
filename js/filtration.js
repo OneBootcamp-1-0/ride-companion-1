@@ -10,24 +10,24 @@ let carPrice;
 
 const filterData = () => data.filter((car) => {
   if(car.characteristics.type === carTypeActiveOption || carTypeActiveOption === `car-type-any`) {
-        return true
+    return true
   }
-  })
-  .filter((car) => {
-    if(car.characteristics.power >= carPowerActiveOption || carPowerActiveOption === `power-all`) {
-      return true
-    }
-  })
-  .filter((car) => {
-    if(car.characteristics.engine === carEngineActiveOption || carEngineActiveOption === `fuel-all`) {
-      return true
-    }
-  })
-  .filter((car) => {
-    if(car.minPrice >= carPrice) {
-      return true
-    }
-  });
+})
+.filter((car) => {
+  if(car.characteristics.power >= carPowerActiveOption || carPowerActiveOption === `power-all`) {
+    return true
+  }
+})
+.filter((car) => {
+  if(car.characteristics.engine === carEngineActiveOption || carEngineActiveOption === `fuel-all`) {
+    return true
+  }
+})
+.filter((car) => {
+  if(car.minPrice >= carPrice) {
+    return true
+  }
+});
 
 carTypeForm.addEventListener(`change`, (e) => {
     carTypeActiveOption = e.target.id;
