@@ -8,7 +8,7 @@ let carPowerActiveOption = `power-all`;
 let carEngineActiveOption = `fuel-all`;
 let carPrice;
 
-const filterData = () => data.filter((car) => {
+const filterData = () => window.data.filter((car) => {
   if((car.characteristics.type === carTypeActiveOption || carTypeActiveOption === `car-type-any`)
   && (car.characteristics.power >= carPowerActiveOption || carPowerActiveOption === `power-all`)
   && (car.characteristics.engine === carEngineActiveOption || carEngineActiveOption === `fuel-all`)
