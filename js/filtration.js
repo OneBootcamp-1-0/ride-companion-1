@@ -1,13 +1,12 @@
 const carTypeForm = document.querySelector(`.filter__form-type`);
 const carPowerForm = document.querySelector(`.filter__form-power`);
 const carEngineForm = document.querySelector(`.filter__form-engine`);
-const carPriceInput = document.querySelector(".filter-price__input");
-const carPriceSlider = document.querySelector(".slider");
+const carPriceForm = document.querySelector(".filter__form-price");
 
 let carTypeActiveOption = `car-type-any`;
 let carPowerActiveOption = `power-all`;
 let carEngineActiveOption = `fuel-all`;
-let carPrice = carPriceInput.value;
+let carPrice;
 
 const filterData = () => data.filter((car) => {
     if(car.characteristics.type === carTypeActiveOption || carTypeActiveOption === `car-type-any`) {
@@ -45,12 +44,7 @@ const filterData = () => data.filter((car) => {
     renderTemplate(filterData());
   });
 
-carPriceSlider.addEventListener(`input`, () => {
-  carPrice = carPriceInput.value;
-  renderTemplate(filterData());
-});
-
-carPriceInput.addEventListener(`input`, () => {
-  carPrice = carPriceInput.value;
+carPriceForm.addEventListener(`change`, (e) => {
+  carPrice = e.target.value;
   renderTemplate(filterData());
 });
