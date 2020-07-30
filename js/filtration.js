@@ -1,6 +1,6 @@
-const carTypeBtns = document.querySelectorAll(`input[name=car-type]`);
-const carPowerBtns = document.querySelectorAll(`input[name=power]`);
-const carFuelBtns = document.querySelectorAll(`input[name=fuel]`);
+const carTypeForm = document.querySelector(`.filter__form-type`);
+const carPowerForm = document.querySelector(`.filter__form-power`);
+const carEngineForm = document.querySelector(`.filter__form-engine`);
 const carPriceInput = document.querySelector(".filter-price__input");
 const carPriceSlider = document.querySelector(".slider");
 
@@ -30,33 +30,27 @@ const filterData = () => data.filter((car) => {
     }
   })
 
-carTypeBtns.forEach((item) => {
-  item.addEventListener(`click`, () => {
-    carTypeActiveOption = item.id;
-    renderTemplate(filterData())
+  carTypeForm.addEventListener(`change`, (e) => {
+    carTypeActiveOption = e.target.id;
+    renderTemplate(filterData());
   });
-});
 
-carPowerBtns.forEach((item) => {
-  item.addEventListener(`click`, () => {
-    carPowerActiveOption = item.id;
-    renderTemplate(filterData())
+  carPowerForm.addEventListener(`change`, (e) => {
+    carPowerActiveOption = e.target.id;
+    renderTemplate(filterData());
   });
-});
 
-carFuelBtns.forEach((item) => {
-  item.addEventListener(`click`, () => {
-    carEngineActiveOption = item.id;
-    renderTemplate(filterData())
+  carEngineForm.addEventListener(`change`, (e) => {
+    carEngineActiveOption = e.target.id;
+    renderTemplate(filterData());
   });
-});
 
 carPriceSlider.addEventListener(`input`, () => {
   carPrice = carPriceInput.value;
-  renderTemplate(filterData())
+  renderTemplate(filterData());
 });
 
 carPriceInput.addEventListener(`input`, () => {
   carPrice = carPriceInput.value;
-  renderTemplate(filterData())
+  renderTemplate(filterData());
 });
