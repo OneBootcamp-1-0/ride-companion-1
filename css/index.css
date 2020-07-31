@@ -241,6 +241,10 @@
   filter: blur(2px);
 }
 
+.carousel__img--active {
+  filter: blur(0);
+}
+
 .carousel__img--single {
   margin: 0 auto;
   filter: blur(0);
