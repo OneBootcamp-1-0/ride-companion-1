@@ -22,7 +22,7 @@ const makeImages = (images, imgAlt) => images.map((url, i) =>
 
 const createCarouselElement = (images, imgAlt) => {
   return `<div class="carousel">
-    <div data-translate="${224}" class="${images.length === 1 ? "carousel__list carousel__list--single" : "carousel__list"}">
+    <div data-translate="${-224}" class="${images.length === 1 ? "carousel__list carousel__list--single" : "carousel__list"}">
       ${makeImages(images, imgAlt)}
     </div>
     ${images.length === 1 ? '' : `<button class="carousel__btn carousel__btn--left" type="button" aria-label="предыдущий слайд">
