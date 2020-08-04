@@ -57,7 +57,8 @@ const createCarElement = ({ brand, model, images, minPrice, mileage, characteris
 </article>`;
 
 const renderTemplate = data => {
-  const container = document.querySelector('.catalog')
+  const container = document.querySelector('.catalog');
+  container.textContent = '';
   data.forEach(car => {
     container.innerHTML += createCarElement(car)
   })
