@@ -4,11 +4,11 @@ const carPowerForm = document.querySelector(`.filter__form-power`);
 const carEngineForm = document.querySelector(`.filter__form-engine`);
 const carPriceForm = document.querySelector(`.filter__form-price`);
 
-let carClassActiveOption = `economy`;
-let carTypeActiveOption = `car-type-any`;
-let carPowerActiveOption = `power-all`;
-let carEngineActiveOption = `fuel-all`;
-let carPrice = 5000;
+let carClassActiveOption = document.querySelector(`input[name="menu"][checked]`).id;
+let carTypeActiveOption = document.querySelector(`input[name="car-type"][checked]`).id;
+let carPowerActiveOption = document.querySelector(`input[name="power"][checked]`).id;
+let carEngineActiveOption = document.querySelector(`input[name="fuel"][checked]`).id;
+let carPrice = document.querySelector(`input[id="slider"]`).value;
 
 const filterData = () => window.data.filter((car) => {
   if ((car.class === carClassActiveOption)
