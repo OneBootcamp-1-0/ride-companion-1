@@ -124,10 +124,12 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   </ul>
 </article>`;
 
-const renderTemplate = (cars) => {
-  cars.forEach((car) => {
-    container.innerHTML += createCarElement(car);
-  });
+const renderTemplate = data => {
+  const container = document.querySelector('.catalog');
+  container.textContent = '';
+  data.forEach(car => {
+    container.innerHTML += createCarElement(car)
+  })
 };
 
 renderTemplate(data);
