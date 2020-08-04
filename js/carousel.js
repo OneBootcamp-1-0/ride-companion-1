@@ -1,20 +1,20 @@
 const carousels = document.querySelectorAll(`.carousel`);
 const carouselMoveVal = 255;
 
-//Init of all the carousel on the page
+// Init of all the carousel on the page
 
 const init = () => {
   const activeSlideNum = 2;
 
   // Add active class for imgs, shown firstly
-  document.querySelectorAll(`img[data-i="${activeSlideNum}"]`).forEach(img => {
+  document.querySelectorAll(`img[data-i="${activeSlideNum}"]`).forEach((img) => {
     img.classList.add(`carousel__img--active`);
   });
 
   // Add tracking of active slide
-  carousels.forEach(carousel => {
+  carousels.forEach((carousel) => {
     carousel.firstElementChild.dataset.activeSlide = activeSlideNum;
-  })
+  });
 };
 
 const moveCarousel = (carousel, direction) => {
@@ -31,7 +31,6 @@ const moveCarousel = (carousel, direction) => {
       return;
     }
   }
-  
   // Move the carousel
   if (direction === `right`) {
     imgsList.style.transform = `translateX(-${carouselMoveVal - currTranslate}px)`;
@@ -44,7 +43,7 @@ const moveCarousel = (carousel, direction) => {
   }
 
   // Move active class to a side, depending on the btn direction
-  Array.from(imgsList.children).forEach(img => {
+  Array.from(imgsList.children).forEach((img) => {
     if (+img.dataset.i === +imgsList.dataset.activeSlide) {
       img.classList.add(`carousel__img--active`);
       if (direction === `right`) {
@@ -56,13 +55,12 @@ const moveCarousel = (carousel, direction) => {
   });
 };
 
-carousels.forEach(carousel => {
-  carousel.addEventListener(`click`, e => {
+carousels.forEach((carousel) => {
+  carousel.addEventListener(`click`, (e) => {
     if (e.target.closest(`.carousel__btn--right`)) {
-      return moveCarousel(carousel, `right`)
-    }
-    if (e.target.closest(`.carousel__btn--left`)) {
-      return moveCarousel(carousel, `left`)
+      moveCarousel(carousel, `right`);
+    } else if (e.target.closest(`.carousel__btn--left`)) {
+      moveCarousel(carousel, `left`);
     }
   });
 });
