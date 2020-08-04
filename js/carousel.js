@@ -1,14 +1,17 @@
 const carousels = document.querySelectorAll(`.carousel`);
 const carouselMoveVal = 255;
 
-//Init all the carousel on the page
+//Init of all the carousel on the page
+
 const init = () => {
   const activeSlideNum = 2;
+
   // Add active class for imgs, shown firstly
   document.querySelectorAll(`img[data-i="${activeSlideNum}"]`).forEach(img => {
     img.classList.add(`carousel__img--active`);
   });
-  // Add counter of active slide
+
+  // Add tracking of active slide
   carousels.forEach(carousel => {
     carousel.firstElementChild.dataset.activeSlide = activeSlideNum;
   })
@@ -18,7 +21,7 @@ const moveCarousel = (carousel, direction) => {
   const imgsList = carousel.firstElementChild;
   const currTranslate = +imgsList.dataset.translate;
 
-  //Check if current slide is last then don't move carousel anymore
+  // Check if current slide is the last then don't move carousel anymore
   if (direction === `right`) {
     if (+imgsList.dataset.activeSlide === imgsList.children.length) {
       return;
@@ -28,7 +31,8 @@ const moveCarousel = (carousel, direction) => {
       return;
     }
   }
-
+  
+  // Move the carousel
   if (direction === `right`) {
     imgsList.style.transform = `translateX(-${carouselMoveVal - currTranslate}px)`;
     imgsList.dataset.translate = -(carouselMoveVal - currTranslate);
@@ -38,7 +42,8 @@ const moveCarousel = (carousel, direction) => {
     imgsList.dataset.translate = carouselMoveVal + currTranslate;
     imgsList.dataset.activeSlide = +imgsList.dataset.activeSlide - 1;
   }
-  
+
+  // Move active class to a side, depending on the btn direction
   Array.from(imgsList.children).forEach(img => {
     if (+img.dataset.i === +imgsList.dataset.activeSlide) {
       img.classList.add(`carousel__img--active`);
@@ -49,7 +54,7 @@ const moveCarousel = (carousel, direction) => {
       }
     }
   });
-}
+};
 
 carousels.forEach(carousel => {
   carousel.addEventListener(`click`, e => {
