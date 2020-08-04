@@ -1,46 +1,26 @@
-const radioButtons = document.querySelectorAll(`input[name=sort]`);
+const sortingForm = document.querySelector('.sort-list-form');
 
-radioButtons.forEach( (button) => {
-  button.addEventListener(`click`, () => {
-    switch (button.id) {
-      case `recommended`: {
-        renderTemplate(data);
-        break;
-      }
+sortingForm.addEventListener(`change`, (e) => {
+  const newData = [...window.data];
+  newData.sort((a, b) => {
+    switch (e.target.id) {
       case `expensive`: {
-        const newData = [...data];
-        newData.sort( (a, b) => {
-          return b.minPrice-a.minPrice;
-        });
-        renderTemplate(newData);
-        break;
+        return b.minPrice - a.minPrice;
       }
       case `cheap`: {
-        const newData = [...data];
-        newData.sort( (a, b) => {
-          return a.minPrice-b.minPrice;
-        });
-        renderTemplate(newData);
-        break;
+        return a.minPrice - b.minPrice;
       }
       case `economic`: {
-        const newData = [...data];
-        newData.sort( (a, b) => {
-          return a.characteristics.power-b.characteristics.power;
-        });
-        renderTemplate(newData);
-        break;
+        return a.characteristics.power - b.characteristics.power;
       }
       case `powerful`: {
-        const newData = [...data];
-        newData.sort( (a, b) => {
-          return b.characteristics.power-a.characteristics.power;
-        });
-        renderTemplate(newData);
-        break;
+        return b.characteristics.power - a.characteristics.power;
       }
-      default:
-        return;
+      case `recommended`:
+      default: {
+        return false
+      }
     }
-  })
-})
+  });
+  renderTemplate(newData)
+});
