@@ -18,7 +18,7 @@ const data = [
       engine: `diesel`,
       power: 250
     },
-    class: `economical`
+    class: `economy`
   },
   {
     brand: `Lada`,
@@ -37,7 +37,7 @@ const data = [
       engine: `petrol`,
       power: 160
     },
-    class: `economical`
+    class: `economy`
   },
   {
     brand: `Nissan`,
@@ -56,7 +56,7 @@ const data = [
       engine: `diesel`,
       power: 120
     },
-    class: `economical`
+    class: `economy`
   },
   {
     brand: `Audi`,

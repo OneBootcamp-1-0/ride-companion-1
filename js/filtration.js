@@ -4,7 +4,7 @@ const carPowerForm = document.querySelector(`.filter__form-power`);
 const carEngineForm = document.querySelector(`.filter__form-engine`);
 const carPriceForm = document.querySelector(`.filter__form-price`);
 
-let carClassActiveOption = `economical`;
+let carClassActiveOption = `economy`;
 let carTypeActiveOption = `car-type-any`;
 let carPowerActiveOption = `power-all`;
 let carEngineActiveOption = `fuel-all`;
