@@ -1,5 +1,6 @@
 const data = [
   {
+    id: 1,
     brand: 'BMW',
     model: '5 series',
     minPrice: 75000,
@@ -20,6 +21,7 @@ const data = [
     }
   },
   {
+    id: 2,
     brand: 'Audi',
     model: 'A5',
     minPrice: 480980,
@@ -46,6 +48,7 @@ const data = [
     }
   },
   {
+    id: 3,
     brand: 'KIA',
     model: 'Rio',
     minPrice: 50000,

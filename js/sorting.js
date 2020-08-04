@@ -18,7 +18,7 @@ sortingForm.addEventListener(`change`, (e) => {
       }
       case `recommended`:
       default: {
-        return false
+        return a.id - b.id;
       }
     }
   });
