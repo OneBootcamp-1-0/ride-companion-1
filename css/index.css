@@ -239,6 +239,7 @@
 
 .carousel__img {
   filter: blur(2px);
+  width: 255px;
 }
 
 .carousel__img--active {
