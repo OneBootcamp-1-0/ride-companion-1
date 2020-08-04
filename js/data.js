@@ -34,7 +34,7 @@ const data = [
     },
     characteristics: {
       type: `estate`,
-      engine: `petrol`,
+      engine: `gas`,
       power: 160
     },
     class: `economy`
@@ -99,7 +99,7 @@ const data = [
     },
     characteristics: {
       type: `coupe`,
-      engine: `petrol`,
+      engine: `gas`,
       power: 230
     },
     class: `business`
@@ -118,7 +118,7 @@ const data = [
     },
     characteristics: {
       type: `cabriolet`,
-      engine: `petrol`,
+      engine: `gas`,
       power: 120
     },
     class: `luxe`

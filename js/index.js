@@ -12,7 +12,7 @@ const characteristicsRu = {
   },
   engine: {
     all: `все`,
-    petrol: `бензин`,
+    gas: `бензин`,
     diesel: `дизель`,
     electric: `электро`
   }
