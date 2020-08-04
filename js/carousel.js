@@ -38,6 +38,7 @@ const moveCarousel = (carousel, direction) => {
     imgsList.dataset.translate = carouselMoveVal + currTranslate;
     imgsList.dataset.activeSlide = +imgsList.dataset.activeSlide - 1;
   }
+  
   Array.from(imgsList.children).forEach(img => {
     if (+img.dataset.i === +imgsList.dataset.activeSlide) {
       img.classList.add(`carousel__img--active`);
