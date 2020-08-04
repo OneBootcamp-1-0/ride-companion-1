@@ -1,6 +1,6 @@
 const maxValue = 200000;
-const slider = document.querySelector(".slider");
-const output = document.querySelector(".filter-price__input");
+const slider = document.querySelector(`.slider`);
+const output = document.querySelector(`.filter-price__input`);
 
 output.value = slider.value;
 
@@ -13,10 +13,14 @@ output.oninput = function() {
 }
 
 const moveBg = () => {
-  let fill = slider.value * 100 / maxValue;
+  const fill = slider.value * 100 / maxValue;
   slider.style.backgroundSize = `calc(${100 - fill}% + ${2}px) 100%`;
 }
 
-output.addEventListener("input", moveBg);
+output.addEventListener(`input`, moveBg);
 
-slider.addEventListener("mousemove", moveBg)
+slider.addEventListener(`mousemove`, moveBg);
+
+slider.addEventListener(`touchmove`, moveBg);
+
+slider.addEventListener(`touchend`, moveBg);
