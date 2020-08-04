@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "live-server",
-    "test": "stylelint **/*.css"
+    "test": "stylelint **/*.css & eslint **/*.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/OneBootcamp-1-0/ride-companion-1#readme",
   "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-htmlacademy": "^0.5.2",
     "live-server": "^1.2.1",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0"
