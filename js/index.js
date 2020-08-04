@@ -59,6 +59,9 @@ const createCarElement = ({ brand, model, images, minPrice, mileage, characteris
 const renderTemplate = data => {
   const container = document.querySelector('.catalog');
   container.textContent = '';
+  if (data.length === 0) {
+    return container.textContent = 'Слишком строгие фильтры';
+  }
   data.forEach(car => {
     container.innerHTML += createCarElement(car)
   })
