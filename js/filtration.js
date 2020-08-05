@@ -20,7 +20,7 @@ const filterAll = () => {
 
   filteredData = filterByType(type, filteredData);
   filteredData = filterByPower(power, filteredData);
-  filteredData = filterByFuel(fuel, filteredData)
+  filteredData = filterByFuel(fuel, filteredData);
   filteredData = filterByPrice(price, filteredData);
   filteredData = filterByClass(carClass, filteredData);
 
@@ -29,13 +29,13 @@ const filterAll = () => {
 
 // Add checked attr for clicked input, remove checked attr from previously checked input
 const toggleCheckAttr = (e) => {
-  document.querySelector(`input[name=${e.target.name}][checked]`).removeAttribute('checked');
-  e.target.toggleAttribute('checked');
-}
+  document.querySelector(`input[name=${e.target.name}][checked]`).removeAttribute(`checked`);
+  e.target.toggleAttribute(`checked`);
+};
 
 // Do filtration on change of form's inputs
 filtersForms.forEach((form) => {
-  form.addEventListener('change', (e) => {
+  form.addEventListener(`change`, (e) => {
     if (e.target.name !== `price`) {
       toggleCheckAttr(e);
     }
