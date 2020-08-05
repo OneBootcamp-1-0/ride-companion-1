@@ -1,49 +1,46 @@
-const carClassForm = document.querySelector(`.menu`);
-const carTypeForm = document.querySelector(`.filter__form-type`);
-const carPowerForm = document.querySelector(`.filter__form-power`);
-const carEngineForm = document.querySelector(`.filter__form-engine`);
-const carPriceForm = document.querySelector(`.filter__form-price`);
+// get All forms
+const filtersForms = document.querySelectorAll(`.filter-form`);
 
-let carClassActiveOption = document.querySelector(`input[name="menu"][checked]`).id;
-let carTypeActiveOption = document.querySelector(`input[name="car-type"][checked]`).id;
-let carPowerActiveOption = document.querySelector(`input[name="power"][checked]`).id;
-let carEngineActiveOption = document.querySelector(`input[name="fuel"][checked]`).id;
-let carPrice = document.querySelector(`input[id="slider"]`).value;
+// Create all filters
+const filterByType = (type, arr) => arr.filter((car) => car.characteristics.type === type || type === `car-type-any`);
+const filterByPower = (power, arr) => arr.filter((car) => car.characteristics.power >= +power || power === `power-all`);
+const filterByFuel = (fuel, arr) => arr.filter((car) => car.characteristics.engine === fuel || fuel === `fuel-all`);
+const filterByPrice = (price, arr) => arr.filter((car) => car.minPrice >= price);
+const filterByClass = (carClass, arr) => arr.filter((car) => car.class === carClass);
 
-const filterData = () => window.data.filter((car) => {
-  if ((car.class === carClassActiveOption)
-  && (car.characteristics.type === carTypeActiveOption || carTypeActiveOption === `car-type-any`)
-  && (car.characteristics.power >= carPowerActiveOption || carPowerActiveOption === `power-all`)
-  && (car.characteristics.engine === carEngineActiveOption || carEngineActiveOption === `fuel-all`)
-  && car.minPrice >= carPrice) {
-    return true;
-  }
-  return ``;
+// Do filtration by all the filters, call render func with the filtered data
+const filterAll = () => {
+  let filteredData = window.data;
+
+  const type = document.querySelector(`input[name=type][checked]`).id;
+  const power = document.querySelector(`input[name=power][checked]`).id;
+  const fuel = document.querySelector(`input[name=fuel][checked]`).id;
+  const price = +document.querySelector(`input[name=price]`).value;
+  const carClass = document.querySelector(`input[name=class][checked]`).id;
+
+  filteredData = filterByType(type, filteredData);
+  filteredData = filterByPower(power, filteredData);
+  filteredData = filterByFuel(fuel, filteredData)
+  filteredData = filterByPrice(price, filteredData);
+  filteredData = filterByClass(carClass, filteredData);
+
+  window.renderTemplate(filteredData);
+};
+
+// Add checked attr for clicked input, remove checked attr from previously checked input
+const toggleCheckAttr = (e) => {
+  document.querySelector(`input[name=${e.target.name}][checked]`).removeAttribute('checked');
+  e.target.toggleAttribute('checked');
+}
+
+// Do filtration on change of form's inputs
+filtersForms.forEach((form) => {
+  form.addEventListener('change', (e) => {
+    if (e.target.name !== `price`) {
+      toggleCheckAttr(e);
+    }
+    filterAll();
+  });
 });
 
-carClassForm.addEventListener(`change`, (e) => {
-  carClassActiveOption = e.target.id;
-  window.renderTemplate(filterData());
-});
-
-carTypeForm.addEventListener(`change`, (e) => {
-  carTypeActiveOption = e.target.id;
-  window.renderTemplate(filterData());
-});
-
-carPowerForm.addEventListener(`change`, (e) => {
-  carPowerActiveOption = e.target.id;
-  window.renderTemplate(filterData());
-});
-
-carEngineForm.addEventListener(`change`, (e) => {
-  carEngineActiveOption = e.target.id;
-  window.renderTemplate(filterData());
-});
-
-carPriceForm.addEventListener(`change`, (e) => {
-  carPrice = e.target.value;
-  window.renderTemplate(filterData());
-});
-
-window.renderTemplate(filterData());
+filterAll();
