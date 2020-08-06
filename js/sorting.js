@@ -1,8 +1,7 @@
 const sortingForm = document.querySelector(`.sort-list-form`);
 
 sortingForm.addEventListener(`change`, (e) => {
-  const newData = [...window.data];
-  newData.sort((a, b) => {
+  window.data.sort((a, b) => {
     switch (e.target.id) {
       case `expensive`: {
         return b.minPrice - a.minPrice;
@@ -22,5 +21,5 @@ sortingForm.addEventListener(`change`, (e) => {
       }
     }
   });
-  window.renderTemplate(newData);
+  window.renderTemplate(window.data);
 });
