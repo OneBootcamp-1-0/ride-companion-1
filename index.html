@@ -51,30 +51,30 @@
       <label class="menu__label" for="luxe">Люкс</label>
     </li>
   </ul>
-
-  <ul class="sort-list">
-    <li>
-      <input type="radio" id="recommended" name="sort" class="sort-list__input">
-      <label class="sort-list__label" for="recommended">Сначала рекомендованные</label>
-    </li>
-    <li>
-      <input type="radio" id="expensive" name="sort" class="sort-list__input">
-      <label class="sort-list__label" for="expensive">Сначала дорогие</label>
-    </li>
-    <li>
-      <input type="radio" id="cheap" name="sort" class="sort-list__input">
-      <label class="sort-list__label" for="cheap">Сначала более дешевые</label>
-    </li>
-    <li>
-      <input type="radio" id="economic" name="sort" class="sort-list__input">
-      <label class="sort-list__label" for="economic">Сначала экономные</label>
-    </li>
-    <li>
-      <input type="radio" id="powerful" name="sort" class="sort-list__input">
-      <label class="sort-list__label" for="powerful">Сначала более мощные</label>
-    </li>
-  </ul>
-
+  <form class="sort-list-form">
+    <ul class="sort-list">
+      <li>
+        <input type="radio" checked id="recommended" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="recommended">Сначала рекомендованные</label>
+      </li>
+      <li>
+        <input type="radio" id="expensive" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="expensive">Сначала дорогие</label>
+      </li>
+      <li>
+        <input type="radio" id="cheap" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="cheap">Сначала более дешевые</label>
+      </li>
+      <li>
+        <input type="radio" id="economic" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="economic">Сначала экономные</label>
+      </li>
+      <li>
+        <input type="radio" id="powerful" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="powerful">Сначала более мощные</label>
+      </li>
+    </ul>
+  </form>
   <dl class="filter">
     <dt>тип кузова</dt>
     <dd class="filter__options">
@@ -144,5 +144,6 @@
   </footer>
   <script src="./js/data.js"></script>
   <script src="./js/index.js"></script>
+  <script src="./js/sorting.js"></script>
 </body>
 </html>
