@@ -14,11 +14,7 @@ output.oninput = function () {
 
 const moveBg = () => {
   const fill = Math.ceil(slider.value * 100 / maxValue);
-  if (fill > 50) {
-    slider.style.backgroundSize = `calc(${100 - fill}% + 9px) 100%`;
-  } else {
-    slider.style.backgroundSize = `calc(${100 - fill}% - 2px) 100%`;
-  }
+  slider.style.backgroundSize = `calc(${100 - fill}% ${fill > 50 ? `+ 9px` : `- 2px`}) 100%`;
 };
 
 output.addEventListener(`input`, moveBg);
