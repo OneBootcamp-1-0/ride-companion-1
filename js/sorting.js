@@ -1,4 +1,4 @@
-const sortingForm = document.querySelector('.sort-list-form');
+const sortingForm = document.querySelector(`.sort-list-form`);
 
 sortingForm.addEventListener(`change`, (e) => {
   const newData = [...window.data];
@@ -22,5 +22,5 @@ sortingForm.addEventListener(`change`, (e) => {
       }
     }
   });
-  renderTemplate(newData)
+  window.renderTemplate(newData);
 });
