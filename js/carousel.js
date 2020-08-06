@@ -22,14 +22,11 @@ const moveCarousel = (carousel, direction) => {
   const currTranslate = +imgsList.dataset.translate;
 
   // Check if current slide is the last then don't move carousel anymore
-  if (direction === `right`) {
-    if (+imgsList.dataset.activeSlide === imgsList.children.length) {
-      return;
-    }
-  } else {
-    if (+imgsList.dataset.activeSlide === 1) {
-      return;
-    }
+  if (direction === `right` && +imgsList.dataset.activeSlide === imgsList.children.length) {
+    return;
+  }
+  if (direction === `left` && +imgsList.dataset.activeSlide === 1) {
+    return;
   }
   // Move the carousel
   if (direction === `right`) {
@@ -58,9 +55,10 @@ const moveCarousel = (carousel, direction) => {
 carousels.forEach((carousel) => {
   carousel.addEventListener(`click`, (e) => {
     if (e.target.closest(`.carousel__btn--right`)) {
-      moveCarousel(carousel, `right`);
-    } else if (e.target.closest(`.carousel__btn--left`)) {
-      moveCarousel(carousel, `left`);
+      return moveCarousel(carousel, `right`);
+    }
+    if (e.target.closest(`.carousel__btn--left`)) {
+      return moveCarousel(carousel, `left`);
     }
   });
 });
