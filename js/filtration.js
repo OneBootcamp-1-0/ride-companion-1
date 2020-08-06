@@ -12,11 +12,11 @@ const filterByClass = (carClass, arr) => arr.filter((car) => car.class === carCl
 const filterAll = () => {
   let filteredData = window.data;
 
-  const type = document.querySelector(`input[name=type][checked]`).id;
-  const power = document.querySelector(`input[name=power][checked]`).id;
-  const fuel = document.querySelector(`input[name=fuel][checked]`).id;
+  const type = document.querySelector(`input[name=type]:checked`).id;
+  const power = document.querySelector(`input[name=power]:checked`).id;
+  const fuel = document.querySelector(`input[name=fuel]:checked`).id;
   const price = +document.querySelector(`input[name=price]`).value;
-  const carClass = document.querySelector(`input[name=class][checked]`).id;
+  const carClass = document.querySelector(`input[name=class]:checked`).id;
 
   filteredData = filterByType(type, filteredData);
   filteredData = filterByPower(power, filteredData);
@@ -27,18 +27,9 @@ const filterAll = () => {
   window.renderTemplate(filteredData);
 };
 
-// Add checked attr for clicked input, remove checked attr from previously checked input
-const toggleCheckAttr = (e) => {
-  document.querySelector(`input[name=${e.target.name}][checked]`).removeAttribute(`checked`);
-  e.target.toggleAttribute(`checked`);
-};
-
 // Do filtration on change of form's inputs
 filtersForms.forEach((form) => {
-  form.addEventListener(`change`, (e) => {
-    if (e.target.name !== `price`) {
-      toggleCheckAttr(e);
-    }
+  form.addEventListener(`change`, () => {
     filterAll();
   });
 });
