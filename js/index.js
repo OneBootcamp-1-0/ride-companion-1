@@ -58,6 +58,25 @@ const data = [
       engine: `petrol`,
       power: 230
     }
+  },
+  {
+    brand: `Toyota`,
+    model: `Prius`,
+    minPrice: 50000,
+    images: [
+      `./img/car-prius.jpeg`,
+      './img/car-prius-2.jpg'
+    ],
+    mileage: {
+      month: 3208,
+      halfYear: 21000,
+      year: 50000
+    },
+    characteristics: {
+      type: `coupe`,
+      engine: `petrol`,
+      power: 230
+    }
   }
 ];
 
