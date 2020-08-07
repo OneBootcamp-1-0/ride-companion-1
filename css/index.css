@@ -231,6 +231,7 @@
 .carousel__list {
   display: flex;
   transform: translateX(-224px);
+  transition: 0.2s;
 }
 
 .carousel__list--single {
