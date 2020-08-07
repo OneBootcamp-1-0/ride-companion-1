@@ -14,6 +14,9 @@ const init = () => {
   // Add tracking of active slide
   carousels.forEach((carousel) => {
     carousel.firstElementChild.dataset.activeSlide = activeSlideNum;
+    if (carousel.firstElementChild.children.length === 2) {
+      carousel.children[2].disabled = true;
+    }
   });
 };
 
@@ -24,9 +27,20 @@ const moveCarousel = (carousel, direction) => {
   // Check if current slide is the last then don't move carousel anymore
   if (direction === `right` && +imgsList.dataset.activeSlide === imgsList.children.length) {
     return;
-  }
-  if (direction === `left` && +imgsList.dataset.activeSlide === 1) {
+  } else if (direction === `left` && +imgsList.dataset.activeSlide === 1) {
     return;
+  }
+
+  if (direction === `right` && +imgsList.dataset.activeSlide === 1) {
+    carousel.children[1].disabled = false;
+  } else if (direction === `left` && +imgsList.dataset.activeSlide === imgsList.children.length) {
+    carousel.children[2].disabled = false;
+  }
+
+  if (direction === `right` && +imgsList.dataset.activeSlide === imgsList.children.length - 1) {
+    carousel.children[2].disabled = true;
+  } else if (direction === `left` && +imgsList.dataset.activeSlide === 2) {
+    carousel.children[1].disabled = true;
   }
   // Move the carousel
   if (direction === `right`) {
@@ -60,6 +74,7 @@ carousels.forEach((carousel) => {
     if (e.target.closest(`.carousel__btn--left`)) {
       return moveCarousel(carousel, `left`);
     }
+    return ``;
   });
 });
 
