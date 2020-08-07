@@ -1,5 +1,6 @@
 const data = [
   {
+    id: 1,
     brand: `BMW`,
     model: `5 series`,
     minPrice: 75000,
@@ -21,6 +22,8 @@ const data = [
     class: `economy`
   },
   {
+    id: 2,
+    id: 3,
     brand: `Lada`,
     model: `X`,
     minPrice: 10000,
@@ -40,6 +43,7 @@ const data = [
     class: `economy`
   },
   {
+    id: 4,
     brand: `Nissan`,
     model: `X`,
     minPrice: 96000,
@@ -59,6 +63,7 @@ const data = [
     class: `economy`
   },
   {
+    id: 5,
     brand: `Audi`,
     model: `A5`,
     minPrice: 480980,
@@ -86,6 +91,7 @@ const data = [
     class: `comfort`
   },
   {
+    id: 6,
     brand: `KIA`,
     model: `Rio`,
     minPrice: 50000,
@@ -105,6 +111,7 @@ const data = [
     class: `business`
   },
   {
+    id: 7,
     brand: `Toyota`,
     model: `Corolla`,
     minPrice: 90000,
