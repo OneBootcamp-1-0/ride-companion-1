@@ -12,7 +12,7 @@ const characteristicsRu = {
   },
   engine: {
     all: `все`,
-    petrol: `бензин`,
+    gas: `бензин`,
     diesel: `дизель`,
     electric: `электро`
   }
@@ -57,9 +57,13 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   </ul>
 </article>`;
 
-const renderTemplate = (data) => {
+const renderTemplate = (cars) => {
   container.textContent = ``;
-  data.forEach((car) => {
+  if (cars.length === 0) {
+    container.textContent = `Слишком строгие фильтры`;
+    return;
+  }
+  cars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
 };

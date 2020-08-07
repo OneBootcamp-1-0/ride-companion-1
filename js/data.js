@@ -18,10 +18,52 @@ const data = [
       type: `sedan`,
       engine: `diesel`,
       power: 250
-    }
+    },
+    class: `economy`
   },
   {
     id: 2,
+    id: 3,
+    brand: `Lada`,
+    model: `X`,
+    minPrice: 10000,
+    images: [
+      `./img/car-bmw.jpg`
+    ],
+    mileage: {
+      month: 4000,
+      halfYear: 25000,
+      year: 60000
+    },
+    characteristics: {
+      type: `estate`,
+      engine: `gas`,
+      power: 160
+    },
+    class: `economy`
+  },
+  {
+    id: 4,
+    brand: `Nissan`,
+    model: `X`,
+    minPrice: 96000,
+    images: [
+      `./img/car-bmw.jpg`
+    ],
+    mileage: {
+      month: 7000,
+      halfYear: 12000,
+      year: 68000
+    },
+    characteristics: {
+      type: `suv`,
+      engine: `diesel`,
+      power: 120
+    },
+    class: `economy`
+  },
+  {
+    id: 5,
     brand: `Audi`,
     model: `A5`,
     minPrice: 480980,
@@ -38,17 +80,18 @@ const data = [
       `./img/car-bmw.jpg`
     ],
     mileage: {
-      month: null,
+      month: 900,
       halfYear: 256000,
       year: 600860
     },
     characteristics: {
       engine: `electric`,
       power: 300
-    }
+    },
+    class: `comfort`
   },
   {
-    id: 3,
+    id: 6,
     brand: `KIA`,
     model: `Rio`,
     minPrice: 50000,
@@ -62,9 +105,30 @@ const data = [
     },
     characteristics: {
       type: `coupe`,
-      engine: `petrol`,
+      engine: `gas`,
       power: 230
-    }
+    },
+    class: `business`
+  },
+  {
+    id: 7,
+    brand: `Toyota`,
+    model: `Corolla`,
+    minPrice: 90000,
+    images: [
+      `./img/car-bmw.jpg`
+    ],
+    mileage: {
+      month: 4000,
+      halfYear: 10000,
+      year: 25000
+    },
+    characteristics: {
+      type: `cabriolet`,
+      engine: `gas`,
+      power: 120
+    },
+    class: `luxe`
   }
 ];
 
