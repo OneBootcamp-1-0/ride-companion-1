@@ -138,6 +138,7 @@
   display: inline-block;
   transition: 0.2s;
   text-decoration: underline;
+  margin-right: 10px;
 }
 
 .filter__label:hover {
@@ -146,7 +147,6 @@
 }
 
 .filter__options {
-  column-gap: 10px;
   display: flex;
   flex-wrap: wrap;
   margin: 0;
@@ -159,42 +159,37 @@
 }
 
 .slider {
-  background: var(--light-bg-c);
+  background-color: var(--light-bg-c);
+  background-image: linear-gradient(90deg, #F2994A 0%, rgba(242, 153, 74, 0) 100%);
+  background-size: 95% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
   border: 1px solid var(--border-c);
   border-radius: 100px;
   cursor: pointer;
   height: 25px;
-  position: relative;
-  width: 215px;
+  -webkit-appearance: none;
+  width: 190px;
 }
 
-.slider__bar {
-  background: linear-gradient(90deg, #F2994A 0%, rgba(242, 153, 74, 0) 100%);
-  border: 1px solid var(--border-c);
-  border-radius: 100px;
-  height: 24px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 50%;
-}
-
-.slider__knob {
+.slider::-webkit-slider-thumb {
+  appearance: none;
   background: var(--text-c);
   border-radius: 50%;
-  display: block;
-  height: 22px;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-}
-
-.scale__toggle:hover {
   height: 24px;
   transition: 0.2s;
   width: 24px;
+  -webkit-appearance: none;
+}
+
+.slider::-moz-range-thumb {
+  appearance: none;
+  background: var(--text-c);
+  border-radius: 50%;
+  height: 24px;
+  transition: 0.2s;
+  width: 24px;
+  -moz-appearance: none;
 }
 
 .filter-price__display {
@@ -218,6 +213,8 @@
 
 .filter-price__input[type=number] {
   -moz-appearance: textfield;
+  text-align: center;
+  width: 50px;
 }
 
 .carousel {

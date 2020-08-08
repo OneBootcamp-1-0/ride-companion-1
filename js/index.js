@@ -1,85 +1,5 @@
 const container = document.querySelector(`.catalog`);
 
-const data = [
-  {
-    brand: `BMW`,
-    model: `5 series`,
-    minPrice: 75000,
-    images: [
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw-2.jpg`,
-      `./img/car-bmw-3.jpg`
-    ],
-    mileage: {
-      month: 4000,
-      halfYear: 25000,
-      year: 60000
-    },
-    characteristics: {
-      type: `sedan`,
-      engine: `diesel`,
-      power: 250
-    }
-  },
-  {
-    brand: `Audi`,
-    model: `A5`,
-    minPrice: 480980,
-    images: [
-      `./img/car-audi-2.jpg`,
-      `./img/car-audi.jpg`,
-      `./img/car-audi-3.jpg`,
-      `./img/car-audi-4.jpg`
-    ],
-    mileage: {
-      month: null,
-      halfYear: 256000,
-      year: 600860
-    },
-    characteristics: {
-      engine: `electric`,
-      power: 300
-    }
-  },
-  {
-    brand: `KIA`,
-    model: `Rio`,
-    minPrice: 50000,
-    images: [
-      `./img/car-bmw.jpg`
-    ],
-    mileage: {
-      month: 3208,
-      halfYear: 21000,
-      year: 50000
-    },
-    characteristics: {
-      type: `coupe`,
-      engine: `petrol`,
-      power: 230
-    }
-  },
-  {
-    brand: `Toyota`,
-    model: `Prius`,
-    minPrice: 50000,
-    images: [
-      `./img/car-prius.jpeg`,
-      './img/car-prius-2.jpg'
-    ],
-    mileage: {
-      month: 3208,
-      halfYear: 21000,
-      year: 50000
-    },
-    characteristics: {
-      type: `coupe`,
-      engine: `petrol`,
-      power: 230
-    }
-  }
-];
-
 const characteristicsRu = {
   type: {
     any: `любой`,
@@ -92,7 +12,7 @@ const characteristicsRu = {
   },
   engine: {
     all: `все`,
-    petrol: `бензин`,
+    gas: `бензин`,
     diesel: `дизель`,
     electric: `электро`
   }
@@ -139,9 +59,15 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
 
 const renderTemplate = (cars) => {
   container.textContent = ``;
+  if (cars.length === 0) {
+    container.textContent = `Слишком строгие фильтры`;
+    return;
+  }
   cars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
 };
 
-renderTemplate(data);
+renderTemplate(window.data);
+
+window.renderTemplate = renderTemplate;
