@@ -6,8 +6,8 @@ const data = [
     minPrice: 75000,
     images: [
       `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`
+      `./img/car-bmw-2.jpg`,
+      `./img/car-bmw-3.jpg`
     ],
     mileage: {
       month: 4000,
@@ -48,7 +48,7 @@ const data = [
     model: `X`,
     minPrice: 96000,
     images: [
-      `./img/car-bmw.jpg`
+      `./img/car-prius.jpeg`
     ],
     mileage: {
       month: 7000,
@@ -68,16 +68,10 @@ const data = [
     model: `A5`,
     minPrice: 480980,
     images: [
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`,
-      `./img/car-bmw.jpg`
+      `./img/car-audi.jpg`,
+      `./img/car-audi-2.jpg`,
+      `./img/car-audi-3.jpg`,
+      `./img/car-audi-4.jpg`
     ],
     mileage: {
       month: 900,
@@ -96,7 +90,7 @@ const data = [
     model: `Rio`,
     minPrice: 50000,
     images: [
-      `./img/car-bmw.jpg`
+      `./img/car-prius-2.jpg`
     ],
     mileage: {
       month: 3208,
@@ -116,7 +110,7 @@ const data = [
     model: `Corolla`,
     minPrice: 90000,
     images: [
-      `./img/car-bmw.jpg`
+      `./img/car-prius.jpeg`
     ],
     mileage: {
       month: 4000,
