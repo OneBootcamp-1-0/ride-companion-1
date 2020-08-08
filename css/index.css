@@ -228,6 +228,7 @@
 .carousel__list {
   display: flex;
   transform: translateX(-224px);
+  transition: 0.2s;
 }
 
 .carousel__list--single {
@@ -236,6 +237,12 @@
 
 .carousel__img {
   filter: blur(2px);
+  object-fit: cover;
+  width: 255px;
+}
+
+.carousel__img--active {
+  filter: blur(0);
 }
 
 .carousel__img--single {
@@ -253,6 +260,16 @@
   top: 50%;
   transform: translateY(-50%);
   width: 16px;
+}
+
+.carousel__btn:disabled .carousel__arrow {
+  cursor: default;
+  opacity: 0.1;
+}
+
+.carousel__btn:disabled:hover .carousel__arrow {
+  transform: none;
+  stroke: var(--arrow-c);
 }
 
 .carousel__arrow {
@@ -279,6 +296,7 @@
 .catalog {
   display: grid;
   justify-content: center;
+  margin-bottom: 60px;
   row-gap: 60px;
 }
 
