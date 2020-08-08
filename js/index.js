@@ -66,6 +66,7 @@ const renderTemplate = (cars) => {
   cars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
+  window.callCarousel();
 };
 
 renderTemplate(window.data);
