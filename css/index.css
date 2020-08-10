@@ -150,6 +150,7 @@
   max-width: 600px;
   overflow-x: auto;
   padding: 15px 10px;
+  width: 100%;
 }
 
 .menu--fixed {
