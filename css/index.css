@@ -105,11 +105,17 @@
 }
 
 .sort-list {
-  display: grid;
+  display: none;
   list-style-type: none;
   margin: 0;
   padding: 15px 40px;
   row-gap: 10px;
+}
+
+.sort-list--active {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  display: grid;
 }
 
 .sort-list__input {
@@ -180,7 +186,7 @@
   transform: scale(1.05);
 }
 
-.menu__btn-icon--active {
+.menu__btn--active svg.menu__btn-icon {
   stroke: var(--accent-c);
 }
 
@@ -202,10 +208,16 @@
 }
 
 .filter {
-  display: grid;
+  display: none;
   gap: 15px;
   grid-template-columns: max-content 1fr;
   padding: 0 20px 15px 40px;
+}
+
+.filter--active {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  display: grid;
 }
 
 .filter__radio-input {
