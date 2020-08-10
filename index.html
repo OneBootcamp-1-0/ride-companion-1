@@ -8,18 +8,164 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <section class="filter-notification notification">
+  <section class="filter-notification notification" style="display: none;">
     <h2 class="filter-notification__title">¯\_(ツ)_/¯ Слишком строгие фильтры</h2>
     <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p>
   </section>
-  <section class="offline-notification notification">
+  <section class="offline-notification notification" style="display: none;">
     <h3 class="offline-notification__title">📴 Офлайн</h3>
     <p class="notification__description">Кажется, вы не подключены к интернету.<br>Проверьте подключение к вайфаю или к сети.</p>
   </section>
-  <section class="loading-notification">
+  <section class="loading-notification" style="display: none;">
     <div class="loading-notification__car">🚗</div>
     <h2 class="loading-notification__title">Загружаем автомобили</h2>
     <div class="loading-notification__box">📦</div>
   </section>
+  <header class="header">
+    <h1 class="header__title">Ride companion — Лучший в России сервис подписки на автомобили.</h1>
+    <img src="./img/logo.svg" width="273" height="69" alt="Ride Companion">
+    <p class="header__tagline">Лучший в России сервис подписки на автомобили</p>
+  </header>
+  <form class="filter-form menu__form">
+    <ul class="menu">
+      <li>
+        <button aria-label="Фильтрация" type="button" class="menu__btn">
+          <svg class="menu__btn-icon" stroke="#F2F2F2" width="17" height="15" viewBox="0 0 17 15" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 5H2" stroke-width="2" />
+            <line x1="10" y1="5" x2="17" y2="5" stroke-width="2" />
+            <line y1="14" x2="17" y2="14" stroke-width="2" />
+            <circle cx="7" cy="5" r="4" stroke-width="2" />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button aria-label="Сортировка" type="button" class="menu__btn menu__btn--sort">
+          <svg class="menu__btn-icon" stroke="#F2F2F2" width="17" height="17" viewBox="0 0 17 17" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <line y1="1" x2="17" y2="1" stroke-width="2" />
+            <line y1="6" x2="11" y2="6" stroke-width="2" />
+            <line y1="11" x2="11" y2="11" stroke-width="2" />
+            <line y1="16" x2="6" y2="16" stroke-width="2" />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <input class="menu__input" id="economy" type="radio" name="class" checked>
+        <label class="menu__label" for="economy">Эконом</label>
+      </li>
+      <li>
+        <input class="menu__input" id="comfort" type="radio" name="class">
+        <label class="menu__label" for="comfort">Комфорт</label>
+      </li>
+      <li>
+        <input class="menu__input" id="business" type="radio" name="class">
+        <label class="menu__label" for="business">Бизнес</label>
+      </li>
+      <li>
+        <input class="menu__input" id="luxe" type="radio" name="class">
+        <label class="menu__label" for="luxe">Люкс</label>
+      </li>
+    </ul>
+  </form>
+  
+  <form class="filter-form">
+    <dl class="filter">
+      <dt>тип кузова</dt>
+      <dd class="filter__options">
+        <input class="filter__radio-input" name="type" id="car-type-any" type="radio" checked>
+        <label class="filter__label" for="car-type-any">любой</label>
+
+        <input class="filter__radio-input" name="type" id="sedan" type="radio">
+        <label class="filter__label" for="sedan">седан</label>
+
+        <input class="filter__radio-input" name="type" id="estate" type="radio">
+        <label class="filter__label" for="estate">универсал</label>
+
+        <input class="filter__radio-input" name="type" id="hatchback" type="radio">
+        <label class="filter__label" for="hatchback">хэтчбек</label>
+
+        <input class="filter__radio-input" name="type" id="suv" type="radio">
+        <label class="filter__label" for="suv">внедорожник</label>
+
+        <input class="filter__radio-input" name="type" id="coupe" type="radio">
+        <label class="filter__label" for="coupe">купе</label>
+
+        <input class="filter__radio-input" name="type" id="cabriolet" type="radio">
+        <label class="filter__label" for="cabriolet">кабриолет</label>
+      </dd>
+      <dt>мощность</dt>
+      <dd class="filter__options">
+        <input class="filter__radio-input" name="power" id="power-all" type="radio" checked>
+        <label class="filter__label" for="power-all">все</label>
+
+        <input class="filter__radio-input" name="power" id="100" type="radio">
+        <label class="filter__label" for="100">от 100 л.с.</label>
+
+        <input class="filter__radio-input" name="power" id="150" type="radio">
+        <label class="filter__label" for="150">от 150 л.с.</label>
+
+        <input class="filter__radio-input" name="power" id="200" type="radio">
+        <label class="filter__label" for="200">от 200 л.с.</label>
+      </dd>
+      <dt>топливо</dt>
+      <dd class="filter__options">
+        <input class="filter__radio-input" name="fuel" id="fuel-all" type="radio" checked>
+        <label class="filter__label" for="fuel-all">все</label>
+
+        <input class="filter__radio-input" name="fuel" id="gas" type="radio">
+        <label class="filter__label" for="gas">бензин</label>
+
+        <input class="filter__radio-input" name="fuel" id="diesel" type="radio">
+        <label class="filter__label" for="diesel">дизель</label>
+
+        <input class="filter__radio-input" name="fuel" id="electric" type="radio">
+        <label class="filter__label" for="electric">электро</label>
+      </dd>
+      <dt>стоимость</dt>
+      <dd class="filter__options filter__options--price">
+        <input name="price" type="range" min="5000" max="200000" value="5000" class="slider" step="5000" id="price">
+        <div class="filter-price__display">от <input name="price" type="number" min="5000" max="200000" value="10000" class="filter-price__input"> ₽ / мес.</div>
+      </dd>
+    </dl>
+  </form>
+  
+  <form class="sort-list-form">
+    <ul class="sort-list">
+      <li>
+        <input type="radio" checked id="recommended" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="recommended">Сначала рекомендованные</label>
+      </li>
+      <li>
+        <input type="radio" id="expensive" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="expensive">Сначала дорогие</label>
+      </li>
+      <li>
+        <input type="radio" id="cheap" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="cheap">Сначала более дешевые</label>
+      </li>
+      <li>
+        <input type="radio" id="economic" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="economic">Сначала экономные</label>
+      </li>
+      <li>
+        <input type="radio" id="powerful" name="sort" class="sort-list__input">
+        <label class="sort-list__label" for="powerful">Сначала более мощные</label>
+      </li>
+    </ul>
+  </form>
+  
+  <section class="catalog"></section>
+  
+  <footer class="footer">
+    <p class="footer__copyright">Сделано на буткемпе&ensp;<a class="footer__link" href="http://oneboot.camp/">OneBootcamp</a></p>
+    <p class="footer__year">2020</p>
+  </footer>
+  <script src="./js/data.js"></script>
+  <script src="./js/carousel.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/sorting.js"></script>
+  <script src="./js/range.js"></script>
+  <script src="./js/filtration.js"></script>
 </body>
 </html>

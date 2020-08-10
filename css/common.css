@@ -1,10 +1,12 @@
 :root {
   --accent-c: #f2994a;
+  --arrow-c: #e0e0Ee;
   --bg-c: #333333;
-  --border-c: #828282;
   --bold-fw: bold;
+  --border-c: #828282;
   --dark-bg-c: #160d0d;
   --error-c: #eb5757;
+  --header-bg-c: #0a0a0a;
   --hover-c: #f2c94c;
   --light-fz: 14px;
   --large-fz: 26px;
@@ -14,6 +16,7 @@
   --nomral-fw: normal;
   --small-fz: 18px;
   --text-c: #f2f2f2;
+  --visited-link-c: #dfdfdf;
 }
 
 *, ::before, ::after {
@@ -35,11 +38,15 @@ a:link {
   transition: 0.2s;
 }
 
-a:link:hover {
+a:link:hover, a:visited:hover {
   color: var(--hover-c);
   transform: scale(1.05);
 }
 
 a:link:active {
   color: var(--accent-c);
+}
+
+a:visited {
+  color: var(--visited-link-c);
 }
