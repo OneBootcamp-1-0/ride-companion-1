@@ -14,6 +14,7 @@
   --medium-fz: 24px;
   --medium-fw: 600;
   --nomral-fw: normal;
+  --page-c: #222222;
   --small-fz: 18px;
   --text-c: #f2f2f2;
   --visited-link-c: #dfdfdf;
@@ -23,12 +24,18 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: var(--page-c);
+}
+
 body {
   background-color: var(--bg-c);
+  box-shadow: 0 0 20px rgba(0 0 0 / .5);
   color: var(--text-c);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: var(--light-fz);
-  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 0;
 }
 
