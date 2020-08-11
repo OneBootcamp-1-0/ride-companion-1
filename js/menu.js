@@ -5,7 +5,7 @@ const filterBtn = document.querySelector(`.menu__btn--filter`);
 const sortBtn = document.querySelector(`.menu__btn--sort`);
 const distanceFromMenuToTop = menu.offsetTop;
 
-window.addEventListener(`scroll`, () => {
+const toggleMenu = () => {
   if (sortBtn.getAttribute(`aria-expanded`) === `false` && filterBtn.getAttribute(`aria-expanded`) === `false`) {
     if (pageYOffset >= distanceFromMenuToTop) {
       menu.classList.add(`menu--fixed`);
@@ -13,15 +13,9 @@ window.addEventListener(`scroll`, () => {
       menu.classList.remove(`menu--fixed`);
     }
   }
-});
+};
 
-menu.addEventListener(`click`, (e) => {
-  const btn = e.target.closest(`.menu__btn`);
-
-  if (!btn) {
-    return;
-  }
-
+const toggleFilterAndSorting = (btn, block) => {
   btn.classList.toggle(`menu__btn--active`);
 
   let isExpanded = btn.getAttribute(`aria-expanded`);
@@ -31,28 +25,36 @@ menu.addEventListener(`click`, (e) => {
   } else {
     menu.classList.add(`menu--fixed`);
   }
+
   isExpanded = isExpanded === `true` ? `false` : `true`;
+
   btn.setAttribute(`aria-expanded`, isExpanded);
 
+  block.classList.toggle(`${block.classList.contains(`filter`) ? `filter--active` : `sort-list--active`}`);
+  block.style.top = `${menu.clientHeight}px`;
+};
+
+window.addEventListener(`scroll`, toggleMenu);
+menu.addEventListener(`click`, (e) => {
+  const btn = e.target.closest(`.menu__btn`);
+
+  if (!btn) {
+    return;
+  }
+
   if (btn.classList.contains(`menu__btn--filter`)) {
-    filter.classList.toggle(`filter--active`);
+    toggleFilterAndSorting(btn, filter);
+
+    sortBtn.setAttribute(`aria-expanded`, `false`);
     sorting.classList.remove(`sort-list--active`);
     sortBtn.classList.remove(`menu__btn--active`);
-    filter.style.top = `${menu.clientHeight}px`;
-    sortBtn.setAttribute(`aria-expanded`, `false`);
   } else if (btn.classList.contains(`menu__btn--sort`)) {
-    sorting.classList.toggle(`sort-list--active`);
+    toggleFilterAndSorting(btn, sorting);
+
     filter.classList.remove(`filter--active`);
     filterBtn.classList.remove(`menu__btn--active`);
-    sorting.style.top = `${menu.clientHeight}px`;
     filterBtn.setAttribute(`aria-expanded`, `false`);
   }
 
-  if (sortBtn.getAttribute(`aria-expanded`) === `false` && filterBtn.getAttribute(`aria-expanded`) === `false`) {
-    if (pageYOffset >= distanceFromMenuToTop) {
-      menu.classList.add(`menu--fixed`);
-    } else {
-      menu.classList.remove(`menu--fixed`);
-    }
-  }
+  toggleMenu();
 });
