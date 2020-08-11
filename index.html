@@ -21,15 +21,16 @@
     <h2 class="loading-notification__title">Загружаем автомобили</h2>
     <div class="loading-notification__box">📦</div>
   </section>
+  
   <header class="header">
     <h1 class="header__title">Ride companion — Лучший в России сервис подписки на автомобили.</h1>
     <img src="./img/logo.svg" width="273" height="69" alt="Ride Companion">
     <p class="header__tagline">Лучший в России сервис подписки на автомобили</p>
   </header>
-  <form class="filter-form menu__form">
+  <form class="filter-form menu-form">
     <ul class="menu">
       <li>
-        <button aria-label="Фильтрация" type="button" class="menu__btn">
+        <button aria-expanded="false" aria-label="Фильтрация" type="button" class="menu__btn menu__btn--filter">
           <svg class="menu__btn-icon" stroke="#F2F2F2" width="17" height="15" viewBox="0 0 17 15" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M0 5H2" stroke-width="2" />
@@ -40,7 +41,7 @@
         </button>
       </li>
       <li>
-        <button aria-label="Сортировка" type="button" class="menu__btn menu__btn--sort">
+        <button aria-expanded="false" aria-label="Сортировка" type="button" class="menu__btn menu__btn--sort">
           <svg class="menu__btn-icon" stroke="#F2F2F2" width="17" height="17" viewBox="0 0 17 17" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <line y1="1" x2="17" y2="1" stroke-width="2" />
@@ -167,5 +168,6 @@
   <script src="./js/sorting.js"></script>
   <script src="./js/range.js"></script>
   <script src="./js/filtration.js"></script>
+  <script src="./js/menu.js"></script>
 </body>
 </html>
