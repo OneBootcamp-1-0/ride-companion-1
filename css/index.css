@@ -171,6 +171,11 @@
   z-index: 9;
 }
 
+.menu__label:hover {
+  color: var(--hover-c);
+  transform: scale(1.05);
+}
+
 .menu__btn {
   border: none;
   background: none;
