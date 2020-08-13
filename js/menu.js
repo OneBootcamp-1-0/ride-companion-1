@@ -82,9 +82,9 @@ const setSelectorState = (action, block, blockName, state) => {
       block.style.display = `grid`;
       break;
     }
-    case `close`: {
+    case `close`:
+    default: {
       block.style.display = `none`;
-      break;
     }
   }
 };
