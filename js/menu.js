@@ -1,13 +1,13 @@
 const menu = document.querySelector(`.menu`);
 const filter = document.querySelector(`.filter`);
 const sorting = document.querySelector(`.sort-list`);
-const menuBtns = document.querySelectorAll(`.menu__btn`);
 const filterBtn = document.querySelector(`.menu__btn--filter`);
 const sortingBtn = document.querySelector(`.menu__btn--sort`);
+const menuBtns = [filterBtn, sortingBtn];
 const catalog = document.querySelector(`.catalog`);
 
-const FILTERNAME = `filter`;
-const SORTINGNAME = `sort-list`;
+const FILTER_NAME = `filter`;
+const SORTING_NAME = `sort-list`;
 
 const distanceFromMenuToTop = menu.offsetTop;
 
@@ -61,9 +61,9 @@ const toggleSelectors = (e) => {
   toggleSelectorsState(`close`);
 
   if (clickedBtn.classList.contains(`menu__btn--filter`)) {
-    setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, filter, FILTERNAME);
+    setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, filter, FILTER_NAME);
   } else if (clickedBtn.classList.contains(`menu__btn--sort`)) {
-    setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, sorting, SORTINGNAME);
+    setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, sorting, SORTING_NAME);
   }
 };
 
@@ -91,8 +91,8 @@ const setSelectorState = (action, block, blockName, state) => {
 
 // Do actions passed in params with both filter and sorting blocks
 const toggleSelectorsState = (action, state) => {
-  setSelectorState(action, filter, FILTERNAME, state);
-  setSelectorState(action, sorting, SORTINGNAME, state);
+  setSelectorState(action, filter, FILTER_NAME, state);
+  setSelectorState(action, sorting, SORTING_NAME, state);
 };
 
 window.addEventListener(`scroll`, toggleMenuState);
