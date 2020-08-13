@@ -35,3 +35,34 @@ const toggleMenuState = () => {
   }
 };
 
+// toggle btn's active state, close/open filter and sorting blocks
+const toggleSelectors = (e) => {
+  const clickedBtn = e.target.closest(`.menu__btn`);
+
+  if (!clickedBtn) {
+    return;
+  }
+
+  menuBtns.forEach((btn) => {
+    if (btn.getAttribute(`aria-label`) === clickedBtn.getAttribute(`aria-label`)) {
+      let isExpanded = btn.getAttribute(`aria-expanded`);
+
+      btn.classList.toggle(`menu__btn--active`);
+
+      isExpanded = isExpanded === `true` ? `false` : `true`;
+
+      btn.setAttribute(`aria-expanded`, isExpanded);
+    } else {
+      btn.classList.remove(`menu__btn--active`);
+      btn.setAttribute(`aria-expanded`, `false`);
+    }
+  });
+
+  toggleSelectorsState(`close`);
+
+  if (clickedBtn.classList.contains(`menu__btn--filter`)) {
+    setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, filter, FILTERNAME);
+  } else if (clickedBtn.classList.contains(`menu__btn--sort`)) {
+    setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, sorting, SORTINGNAME);
+  }
+};
