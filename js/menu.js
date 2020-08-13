@@ -13,7 +13,7 @@ const distanceFromMenuToTop = menu.offsetTop;
 
 // Toggle catalog's top margin
 const toggleCatalogMargin = (isMargin) => {
-  catalog.style.marginTop = `${isMargin ? `${menu.clientHeight}px` : `0`}`;
+  catalog.style.marginTop = `${isMargin ? `${menu.clientHeight}px` : 0}`;
 };
 
 // Toggle fixed and active state of menu,  toggle filter's and sorting's fixed state
