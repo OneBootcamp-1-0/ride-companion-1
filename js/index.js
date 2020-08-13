@@ -1,4 +1,5 @@
 const container = document.querySelector(`.catalog`);
+const loading = document.querySelector(".loading-notification");
 
 const characteristicsRu = {
   type: {
@@ -58,6 +59,7 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
 </article>`;
 
 const renderTemplate = (cars) => {
+  loading.remove();
   container.textContent = ``;
   if (cars.length === 0) {
     container.textContent = `Слишком строгие фильтры`;
