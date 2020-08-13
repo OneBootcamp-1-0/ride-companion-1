@@ -1,5 +1,5 @@
 const container = document.querySelector(`.catalog`);
-const loading = document.querySelector(".loading-notification");
+const loading = document.querySelector(`.loading-notification`);
 
 const characteristicsRu = {
   type: {
@@ -71,6 +71,12 @@ const renderTemplate = (cars) => {
   window.callCarousel();
 };
 
-renderTemplate(window.data);
+window.getData()
+  .then((data) => {
+    window.carsData = data;
+    const filteredData = window.filterAll(data);
+    const sortedData = window.sortData(filteredData);
+    renderTemplate(sortedData);
+  });
 
 window.renderTemplate = renderTemplate;
