@@ -88,3 +88,16 @@ const setSelectorState = (action, block, blockName, state) => {
     }
   }
 };
+
+// Do actions passed in params with both filter and sorting blocks
+const toggleSelectorsState = (action, state) => {
+  setSelectorState(action, filter, FILTERNAME, state);
+  setSelectorState(action, sorting, SORTINGNAME, state);
+};
+
+window.addEventListener(`scroll`, toggleMenuState);
+
+menu.addEventListener(`click`, (e) => {
+  toggleSelectors(e);
+  toggleMenuState();
+});
