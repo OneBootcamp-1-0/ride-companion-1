@@ -16,3 +16,22 @@ const toggleCatalogMargin = (isMargin) => {
   catalog.style.marginTop = `${isMargin ? `${menu.clientHeight}px` : `0`}`;
 };
 
+// Toggle fixed and active state of menu,  toggle filter's and sorting's fixed state
+const toggleMenuState = () => {
+  if (pageYOffset >= distanceFromMenuToTop) {
+    menu.classList.add(`menu--fixed`);
+    toggleSelectorsState(`change`, `fixed`);
+    toggleCatalogMargin(true);
+  } else {
+    if (filterBtn.getAttribute(`aria-expanded`) === `true`
+      || sortingBtn.getAttribute(`aria-expanded`) === `true`) {
+      menu.classList.add(`menu--active`);
+    } else {
+      menu.classList.remove(`menu--active`);
+    }
+    menu.classList.remove(`menu--fixed`);
+    toggleSelectorsState(`change`, `active`);
+    toggleCatalogMargin(false);
+  }
+};
+
