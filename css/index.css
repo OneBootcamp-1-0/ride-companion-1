@@ -104,21 +104,28 @@
 }
 
 .sort-list {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   display: none;
   list-style-type: none;
   margin: 0;
-  padding: 0 40px 15px 40px;
-  row-gap: 10px;
-}
-
-.sort-list--active {
-  background: rgba(0, 0, 0, 0.85);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  display: grid;
   max-width: 600px;
-  position: fixed;
+  padding: 0 40px 15px 40px;
+  position: absolute;
+  row-gap: 10px;
   width: 100%;
   z-index: 9;
+}
+
+.sort-list--fixed {
+  position: fixed;
+  top: 51px;
+}
+
+@media (min-width: 768px) {
+  .sort-list--fixed {
+    top: 54px;
+  }
 }
 
 .sort-list__input {
@@ -160,6 +167,11 @@
   overflow-x: auto;
   padding: 15px 10px;
   width: 100%;
+}
+
+.menu--active {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .menu--fixed {
@@ -216,21 +228,28 @@
 }
 
 .filter {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   display: none;
   gap: 15px;
   grid-template-columns: max-content 1fr;
   margin: 0;
-  padding: 0 20px 15px 40px;
-}
-
-.filter--active {
-  background: rgba(0, 0, 0, 0.85);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  display: grid;
   max-width: 600px;
-  position: fixed;
+  padding: 0 20px 15px 40px;
+  position: absolute;
   width: 100%;
   z-index: 9;
+}
+
+.filter--fixed {
+  position: fixed;
+  top: 51px;
+}
+
+@media (min-width: 768px) {
+  .filter--fixed {
+    top: 54px;
+  }
 }
 
 .filter__radio-input {
