@@ -66,3 +66,25 @@ const toggleSelectors = (e) => {
     setSelectorState(`${clickedBtn.getAttribute(`aria-expanded`) === `true` ? `open` : `close`}`, sorting, SORTINGNAME);
   }
 };
+
+// Do different actions with blocks passed in the params
+const setSelectorState = (action, block, blockName, state) => {
+  switch (action) {
+    case `change`: {
+      if (state === `fixed`) {
+        block.classList.add(`${blockName}--fixed`);
+      } else {
+        block.classList.remove(`${blockName}--fixed`);
+      }
+      break;
+    }
+    case `open`: {
+      block.style.display = `grid`;
+      break;
+    }
+    case `close`: {
+      block.style.display = `none`;
+      break;
+    }
+  }
+};
