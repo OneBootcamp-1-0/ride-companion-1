@@ -1,4 +1,4 @@
-.filter-notification {
+.error-notification {
   display: grid;
   grid-template-columns: 215px;
   justify-content: center;
@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-.filter-notification__title {
+.error-notification__title {
   color: var(--accent-c);
   font-size: var(--medium-fz);
   margin: 0;
