@@ -23,7 +23,7 @@ const filterAll = (data) => {
   filteredData = filterByFuel(fuel, filteredData);
   filteredData = filterByPrice(price, filteredData);
   filteredData = filterByClass(carClass, filteredData);
-  
+
   window.carsDataCopy = filteredData;
   return filteredData;
 };
