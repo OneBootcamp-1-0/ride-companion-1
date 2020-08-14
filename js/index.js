@@ -65,7 +65,7 @@ const renderTemplate = (cars) => {
     container.textContent = `Слишком строгие фильтры`;
     return;
   }
-  const sortedCars = sortData(cars);
+  const sortedCars = window.sortData(cars);
   sortedCars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
