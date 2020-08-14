@@ -1,5 +1,9 @@
 const container = document.querySelector(`.catalog`);
 const loading = document.querySelector(`.loading-notification`);
+const offlineNotification = `<section class="offline-notification notification">
+  <h3 class="offline-notification__title">📴 Офлайн</h3>
+  <p class="notification__description">Кажется, вы не подключены к интернету.<br>Проверьте подключение к вайфаю или к сети.</p>
+</section>`;
 
 const characteristicsRu = {
   type: {
@@ -77,6 +81,11 @@ window.getData()
     window.carsData = data;
     const filteredData = window.filterAll(data);
     renderTemplate(filteredData);
+  })
+  .catch(() => {
+    if (!navigator.online) {
+      container.innerHTML = offlineNotification;
+    }
   });
 
 window.renderTemplate = renderTemplate;
