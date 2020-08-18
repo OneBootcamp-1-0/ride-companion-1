@@ -63,7 +63,7 @@ const toggleBlocks = (clickedBtn) => {
     openBlock(block);
     activateBtn(clickedBtn);
     activeSelector = block;
-    
+
     if (pageYOffset <= distanceFromMenuToTop) {
       scrollToElem(menu);
     }
