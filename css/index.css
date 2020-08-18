@@ -111,19 +111,15 @@
   margin: 0;
   max-width: 600px;
   padding: 0 40px 15px 40px;
-  position: absolute;
+  position: fixed;
+  top: 51px;
   row-gap: 10px;
   width: 100%;
   z-index: 9;
 }
 
-.sort-list--fixed {
-  position: fixed;
-  top: 51px;
-}
-
 @media (min-width: 768px) {
-  .sort-list--fixed {
+  .sort-list {
     top: 54px;
   }
 }
@@ -177,7 +173,7 @@
 .menu--fixed {
   background: rgba(0, 0, 0, 0.85);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 9;
 }
@@ -236,18 +232,14 @@
   margin: 0;
   max-width: 600px;
   padding: 0 20px 15px 40px;
-  position: absolute;
+  position: fixed;
+  top: 51px;
   width: 100%;
   z-index: 9;
 }
 
-.filter--fixed {
-  position: fixed;
-  top: 51px;
-}
-
 @media (min-width: 768px) {
-  .filter--fixed {
+  .filter {
     top: 54px;
   }
 }
