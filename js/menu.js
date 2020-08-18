@@ -63,7 +63,10 @@ const toggleBlocks = (clickedBtn) => {
     openBlock(block);
     activateBtn(clickedBtn);
     activeSelector = block;
-    scrollToElem(menu);
+    
+    if (pageYOffset <= distanceFromMenuToTop) {
+      scrollToElem(menu);
+    }
   }
 
   closeBlock(block === filter ? sorting : filter);
