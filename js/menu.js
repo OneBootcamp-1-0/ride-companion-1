@@ -59,14 +59,16 @@ const toggleBlocks = (clickedBtn) => {
     closeBlock(block);
     inactivateBtn(clickedBtn);
     activeSelector = null;
-  } else {
-    openBlock(block);
-    activateBtn(clickedBtn);
-    activeSelector = block;
+    return;
+  }
 
-    if (pageYOffset <= distanceFromMenuToTop) {
-      scrollToElem(menu);
-    }
+  openBlock(block);
+  activateBtn(clickedBtn);
+  
+  activeSelector = block;
+
+  if (pageYOffset <= distanceFromMenuToTop) {
+    scrollToElem(menu);
   }
 
   closeBlock(block === filter ? sorting : filter);
