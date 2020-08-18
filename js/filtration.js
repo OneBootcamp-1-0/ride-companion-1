@@ -11,7 +11,6 @@ const filterByClass = (carClass, arr) => arr.filter((car) => car.class === carCl
 // Do filtration by all the filters, call render func with the filtered data
 const filterAll = (data) => {
   let filteredData = data;
-  window.carsDataCopy = data;
   const type = document.querySelector(`input[name=type]:checked`).id;
   const power = document.querySelector(`input[name=power]:checked`).id;
   const fuel = document.querySelector(`input[name=fuel]:checked`).id;
