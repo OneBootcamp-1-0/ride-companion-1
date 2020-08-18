@@ -1,4 +1,8 @@
 const container = document.querySelector(`.catalog`);
+const loadingAlert = document.querySelector(`.loading-notification`);
+const filterAlert = `<section class="error-notification notification alert"><h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2><p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p></section>`;
+
+
 
 const characteristicsRu = {
   type: {
@@ -57,26 +61,11 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   </ul>
 </article>`;
 
-const createAlert = (wrapper, wrapperClass, content) => {
-  const alert = document.createElement(wrapper);
-  alert.className = wrapperClass;
-  alert.innerHTML = content;
-  return alert;
-};
-
-const deleteAlerts = () => {
-  const alerts = document.querySelectorAll(`.alert`);
-  alerts.forEach((a) => {
-    a.remove();
-  });
-};
-
 const renderTemplate = (cars) => {
-  deleteAlerts();
+  loadingAlert.remove();
   container.textContent = ``;
   if (cars.length === 0) {
-    container.before(createAlert(`section`, `error-notification notification alert`, `<h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2>
-    <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p>`));
+    container.innerHTML = filterAlert;
     return;
   }
   const sortedCars = window.sortData(cars);
@@ -86,20 +75,35 @@ const renderTemplate = (cars) => {
   window.callCarousel();
 };
 
+const createAlert = (wrapper, title, description, wrapperClass, titleClass, descriptionClass, titleContent,  descriptionContent) => {
+  const wrapperElement = document.createElement(wrapper);
+  wrapperElement.className = wrapperClass;
+
+  const titleElement = document.createElement(title);
+  titleElement.className = titleClass;
+  titleElement.content = titleContent;
+
+  const descriptionElement = document.createElement(description);
+  descriptionElement.className = descriptionClass;
+  descriptionElement.content = descriptionContent;
+
+  wrapperElement.appendChild(titleElement);
+  wrapperElement.appendChild(contentElement);
+
+  return wrapperElement;
+}
+
 window.getData()
   .then((data) => {
     window.carsData = data;
-    const filteredData = window.filterAll(data);
-    renderTemplate(filteredData);
+    renderTemplate(window.filterAll(data));
   })
   .catch(() => {
-    deleteAlerts();
+    loadingAlert.remove();
     if (!navigator.onLine) {
-      container.before(createAlert(`section`, `offline-notification notification alert`, `<h3 class="offline-notification__title">📴 Офлайн</h3>
-      <p class="notification__description">Кажется, вы не подключены к интернету.<br>Проверьте подключение к вайфаю или к сети.</p>`));
+      container.before(createAlert(`section`, `h3`, `p`, `offline-notification notification alert`, `offline-notification__title`, `notification__description`, `📴 Офлайн`, `Кажется, вы не подключены к интернету.<br>Проверьте подключение к вайфаю или к сети.`));
     } else {
-      container.before(createAlert(`section`, `error-notification notification alert`, `<h2 class="error-notification__title">¯\\_(ツ)_/¯ Что-то пошло не так</h2>
-      <p class="notification__description">Попробуйте перезагрузить сайт</p>`));
+      container.before(createAlert(`section`, `h2`, `p`, `error-notification notification alert`, `error-notification__title`, `notification__description`, `¯\\_(ツ)_/¯ Что-то пошло не так`, `Попробуйте перезагрузить сайт`));
     }
   });
 
