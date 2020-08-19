@@ -1,6 +1,17 @@
 const container = document.querySelector(`.catalog`);
 const loadingAlert = document.querySelector(`.loading-notification`);
-const filterAlert = `<section class="error-notification notification alert"><h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2><p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p></section>`;
+const filterAlert = `<section class="error-notification notification alert">
+  <h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2>
+  <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p>
+</section>`;
+const errorAlert = `<section class="error-notification notification alert">
+  <h2 class="error-notification__title">¯\\_(ツ)_/¯ Что-то пошло не так</h2>
+  <p class="notification__description">Попробуйте перезагрузить сайт</p>
+</section>`;
+const offlineAlert = `<section class="offline-notification notification">
+  <h3 class="offline-notification__title">📴 Офлайн</h3>
+  <p class="notification__description">Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.</p>
+</section>`;
 
 const characteristicsRu = {
   type: {
@@ -59,11 +70,18 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   </ul>
 </article>`;
 
+const createElement = (html) => {
+  const template = document.createElement(`template`);
+  template.innerHTML = html;
+
+  return template.content.firstElementChild;
+};
+
 const renderTemplate = (cars) => {
   loadingAlert.remove();
   container.textContent = ``;
   if (cars.length === 0) {
-    container.innerHTML = filterAlert;
+    container.append(createElement(filterAlert));
     return;
   }
   const sortedCars = window.sortData(cars);
@@ -71,24 +89,6 @@ const renderTemplate = (cars) => {
     container.innerHTML += createCarElement(car);
   });
   window.callCarousel();
-};
-
-const createAlert = (wrapper, title, description, wrapperClass, titleClass, descriptionClass, titleContent, descriptionContent) => {
-  const wrapperElement = document.createElement(wrapper);
-  wrapperElement.className = wrapperClass;
-
-  const titleElement = document.createElement(title);
-  titleElement.className = titleClass;
-  titleElement.textContent = titleContent;
-
-  const descriptionElement = document.createElement(description);
-  descriptionElement.className = descriptionClass;
-  descriptionElement.textContent = descriptionContent;
-
-  wrapperElement.appendChild(titleElement);
-  wrapperElement.appendChild(descriptionElement);
-
-  return wrapperElement;
 };
 
 window.getData()
@@ -99,13 +99,13 @@ window.getData()
   .catch(() => {
     loadingAlert.remove();
 
-    container.before(createAlert(`section`, `h2`, `p`, `error-notification notification alert`, `error-notification__title`, `notification__description`, `¯\\_(ツ)_/¯ Что-то пошло не так`, `Попробуйте перезагрузить сайт`));
+    container.before(createElement(errorAlert));
   });
 
 window.renderTemplate = renderTemplate;
 
 window.addEventListener(`offline`, () => {
-  container.before(createAlert(`section`, `h3`, `p`, `offline-notification notification alert`, `offline-notification__title`, `notification__description`, `📴 Офлайн`, `Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.`));
+  container.before(createElement(offlineAlert));
 });
 
 window.addEventListener(`online`, () => {
