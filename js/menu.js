@@ -6,7 +6,7 @@ const sortingBtn = document.querySelector(`.menu__btn--sort`);
 
 const distanceFromMenuToTop = menu.offsetTop;
 
-let activeSelector = null;
+let activeBlock = null;
 
 const scrollToElem = (elem) => {
   elem.scrollIntoView();
@@ -37,14 +37,14 @@ const inactivateBtn = (btn) => {
 window.addEventListener(`scroll`, () => {
   toggleMenuState();
 
-  if (activeSelector) {
-    const activeBtn = activeSelector === filter ? filterBtn : sortingBtn;
+  if (activeBlock) {
+    const activeBtn = activeBlock === filter ? filterBtn : sortingBtn;
 
     if (pageYOffset <= distanceFromMenuToTop - 1) {
-      closeBlock(activeSelector);
+      closeBlock(activeBlock);
       inactivateBtn(activeBtn);
     } else {
-      openBlock(activeSelector);
+      openBlock(activeBlock);
       activateBtn(activeBtn);
     }
   }
@@ -58,14 +58,14 @@ const toggleBlocks = (clickedBtn) => {
   if (isExpanded) {
     closeBlock(block);
     inactivateBtn(clickedBtn);
-    activeSelector = null;
+    activeBlock = null;
     return;
   }
 
   openBlock(block);
   activateBtn(clickedBtn);
   
-  activeSelector = block;
+  activeBlock = block;
 
   if (pageYOffset <= distanceFromMenuToTop) {
     scrollToElem(menu);
