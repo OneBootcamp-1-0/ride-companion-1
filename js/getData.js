@@ -1,4 +1,4 @@
-const getData = () => fetch(`/dta.json`)
+const getData = () => fetch(`/data.json`)
   .then((res) => {
     if (res.status === 200) {
       return res;
