@@ -98,7 +98,6 @@ window.getData()
   })
   .catch(() => {
     loadingAlert.remove();
-
     container.before(createElement(errorAlert));
   });
 
