@@ -73,7 +73,7 @@ const renderTemplate = (cars) => {
   window.callCarousel();
 };
 
-const createAlert = (wrapper, title, description, wrapperClass, titleClass, descriptionClass, titleContent,  descriptionContent) => {
+const createAlert = (wrapper, title, description, wrapperClass, titleClass, descriptionClass, titleContent, descriptionContent) => {
   const wrapperElement = document.createElement(wrapper);
   wrapperElement.className = wrapperClass;
 
@@ -89,7 +89,7 @@ const createAlert = (wrapper, title, description, wrapperClass, titleClass, desc
   wrapperElement.appendChild(descriptionElement);
 
   return wrapperElement;
-}
+};
 
 window.getData()
   .then((data) => {
@@ -104,10 +104,10 @@ window.getData()
 
 window.renderTemplate = renderTemplate;
 
-window.addEventListener('offline', () => {
+window.addEventListener(`offline`, () => {
   container.before(createAlert(`section`, `h3`, `p`, `offline-notification notification alert`, `offline-notification__title`, `notification__description`, `📴 Офлайн`, `Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.`));
 });
 
-window.addEventListener('online', () => {
+window.addEventListener(`online`, () => {
   document.querySelector(`.offline-notification`).remove();
 });
