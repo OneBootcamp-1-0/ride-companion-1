@@ -22,14 +22,19 @@ const toggleBtn = (btnClass, boolean) => {
 };
 
 window.addEventListener(`scroll`, () => {
-  const condition = pageYOffset >= menu.offsetTop - 1;
-
-  toggleMenuState(condition);
+  const isScrolledUnderMenu = pageYOffset >= menu.offsetTop - 1;
+  const isMenuFixed = menu.classList.contains(`menu--fixed`);
+  
+  if (!isMenuFixed && isScrolledUnderMenu) {
+    toggleMenuState(true);
+  } else if (isMenuFixed && !isScrolledUnderMenu){
+    toggleMenuState(false);
+  }
+  
   if (activeBlockClass) {
-    
     const activeBtnClass = activeBlockClass === `filter` ? `menu__btn--filter` : `menu__btn--sort`;
 
-    if (condition) {
+    if (isScrolledUnderMenu) {
       toggleBlock(activeBlockClass, true);
       toggleBtn(activeBtnClass, true);
     } else {
