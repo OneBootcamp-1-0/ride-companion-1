@@ -6,10 +6,6 @@ const sortingBtn = document.querySelector(`.menu__btn--sort`);
 
 let activeBlock = null;
 
-const scrollToElem = (elem) => {
-  elem.scrollIntoView();
-};
-
 const toggleMenuState = () => {
   menu.classList.toggle(`menu--fixed`, pageYOffset >= menu.offsetTop - 1);
 };
@@ -66,7 +62,7 @@ const toggleBlocks = (clickedBtn) => {
   activeBlock = block;
 
   if (pageYOffset <= menu.offsetTop) {
-    scrollToElem(menu);
+    menu.scrollIntoView();
   }
 
   closeBlock(block === filter ? sorting : filter);
