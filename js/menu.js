@@ -1,6 +1,4 @@
 const menu = document.querySelector(`.menu-form`);
-const filter = document.querySelector(`.filter`);
-const sorting = document.querySelector(`.sort-list`);
 const filterBtn = document.querySelector(`.menu__btn--filter`);
 const sortingBtn = document.querySelector(`.menu__btn--sort`);
 
@@ -24,13 +22,13 @@ const toggleBtn = (btnClass, boolean) => {
 window.addEventListener(`scroll`, () => {
   const isScrolledUnderMenu = pageYOffset >= menu.offsetTop - 1;
   const isMenuFixed = menu.classList.contains(`menu--fixed`);
-  
+
   if (!isMenuFixed && isScrolledUnderMenu) {
     toggleMenuState(true);
-  } else if (isMenuFixed && !isScrolledUnderMenu){
+  } else if (isMenuFixed && !isScrolledUnderMenu) {
     toggleMenuState(false);
   }
-  
+
   if (activeBlockClass) {
     const activeBtnClass = activeBlockClass === `filter` ? `menu__btn--filter` : `menu__btn--sort`;
 
