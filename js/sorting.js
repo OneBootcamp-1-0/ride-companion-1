@@ -1,8 +1,13 @@
 const sortingForm = document.querySelector(`.sort-list-form`);
 
-sortingForm.addEventListener(`change`, (e) => {
-  window.data.sort((a, b) => {
-    switch (e.target.id) {
+sortingForm.addEventListener(`change`, () => {
+  window.renderTemplate(sortData(window.carsDataCopy));
+});
+
+const sortData = (data) => {
+  const checkedInputId = document.querySelector(`input[name=sort]:checked`).id;
+  data.sort((a, b) => {
+    switch (checkedInputId) {
       case `expensive`: {
         return b.minPrice - a.minPrice;
       }
@@ -21,5 +26,7 @@ sortingForm.addEventListener(`change`, (e) => {
       }
     }
   });
-  window.renderTemplate(window.data);
-});
+  return data;
+};
+
+window.sortData = sortData;

@@ -1,4 +1,8 @@
-.filter-notification {
+.alert {
+  margin: 20px 0;
+}
+
+.error-notification {
   display: grid;
   grid-template-columns: 215px;
   justify-content: center;
@@ -6,7 +10,7 @@
   text-align: center;
 }
 
-.filter-notification__title {
+.error-notification__title {
   color: var(--accent-c);
   font-size: var(--medium-fz);
   margin: 0;
@@ -31,7 +35,11 @@
   grid-template-columns: 310px;
   justify-content: center;
   padding: 10px 0 15px;
+  position: fixed;
   text-align: center;
+  top: 0;
+  z-index: 9;
+  width: 100%;
 }
 
 .offline-notification__title {
