@@ -70,10 +70,10 @@ const toggleBlocks = (clickedBtn) => {
   toggleBtn(clickedBtnClass === `menu__btn--filter` ? `menu__btn--sort` : `menu__btn--filter`, false);
 };
 
-menu.addEventListener(`click`, (e) => {
-  const clickedBtn = e.target.closest(`.menu__btn`);
+filterBtn.addEventListener(`click`, () => {
+  toggleBlocks(filterBtn);
+});
 
-  if (clickedBtn) {
-    toggleBlocks(clickedBtn);
-  }
+sortingBtn.addEventListener(`click`, () => {
+  toggleBlocks(sortingBtn);
 });
