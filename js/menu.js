@@ -6,8 +6,8 @@ const sortingBtn = document.querySelector(`.menu__btn--sort`);
 
 let activeBlock = null;
 
-const toggleMenuState = () => {
-  menu.classList.toggle(`menu--fixed`, pageYOffset >= menu.offsetTop - 1);
+const toggleMenuState = (condition) => {
+  menu.classList.toggle(`menu--fixed`, condition);
 };
 
 const openBlock = (block) => {
@@ -29,17 +29,19 @@ const inactivateBtn = (btn) => {
 };
 
 window.addEventListener(`scroll`, () => {
-  toggleMenuState();
+  const condition = pageYOffset >= menu.offsetTop - 1;
+
+  toggleMenuState(condition);
 
   if (activeBlock) {
     const activeBtn = activeBlock === filter ? filterBtn : sortingBtn;
 
-    if (pageYOffset <= menu.offsetTop - 1) {
-      closeBlock(activeBlock);
-      inactivateBtn(activeBtn);
-    } else {
+    if (condition) {
       openBlock(activeBlock);
       activateBtn(activeBtn);
+    } else {
+      closeBlock(activeBlock);
+      inactivateBtn(activeBtn);
     }
   }
 });
@@ -58,7 +60,7 @@ const toggleBlocks = (clickedBtn) => {
 
   openBlock(block);
   activateBtn(clickedBtn);
-  
+
   activeBlock = block;
 
   if (pageYOffset <= menu.offsetTop) {
