@@ -2,8 +2,6 @@ const container = document.querySelector(`.catalog`);
 const loadingAlert = document.querySelector(`.loading-notification`);
 const filterAlert = `<section class="error-notification notification alert"><h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2><p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p></section>`;
 
-
-
 const characteristicsRu = {
   type: {
     any: `любой`,
@@ -81,14 +79,14 @@ const createAlert = (wrapper, title, description, wrapperClass, titleClass, desc
 
   const titleElement = document.createElement(title);
   titleElement.className = titleClass;
-  titleElement.content = titleContent;
+  titleElement.textContent = titleContent;
 
   const descriptionElement = document.createElement(description);
   descriptionElement.className = descriptionClass;
-  descriptionElement.content = descriptionContent;
+  descriptionElement.textContent = descriptionContent;
 
   wrapperElement.appendChild(titleElement);
-  wrapperElement.appendChild(contentElement);
+  wrapperElement.appendChild(descriptionElement);
 
   return wrapperElement;
 }
@@ -100,11 +98,16 @@ window.getData()
   })
   .catch(() => {
     loadingAlert.remove();
-    if (!navigator.onLine) {
-      container.before(createAlert(`section`, `h3`, `p`, `offline-notification notification alert`, `offline-notification__title`, `notification__description`, `📴 Офлайн`, `Кажется, вы не подключены к интернету.<br>Проверьте подключение к вайфаю или к сети.`));
-    } else {
-      container.before(createAlert(`section`, `h2`, `p`, `error-notification notification alert`, `error-notification__title`, `notification__description`, `¯\\_(ツ)_/¯ Что-то пошло не так`, `Попробуйте перезагрузить сайт`));
-    }
+
+    container.before(createAlert(`section`, `h2`, `p`, `error-notification notification alert`, `error-notification__title`, `notification__description`, `¯\\_(ツ)_/¯ Что-то пошло не так`, `Попробуйте перезагрузить сайт`));
   });
 
 window.renderTemplate = renderTemplate;
+
+window.addEventListener('offline', () => {
+  container.before(createAlert(`section`, `h3`, `p`, `offline-notification notification alert`, `offline-notification__title`, `notification__description`, `📴 Офлайн`, `Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.`));
+});
+
+window.addEventListener('online', () => {
+  document.querySelector(`.offline-notification`).remove();
+});
