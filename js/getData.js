@@ -3,7 +3,7 @@ const getData = () => fetch(`/data.json`)
     if (res.status === 200) {
       return res;
     }
-    throw new Error(res.status);
+    throw new Error();
   })
   .then((res) => res.json());
 
