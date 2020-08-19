@@ -1,3 +1,7 @@
+.alert {
+  margin: 20px 0;
+}
+
 .error-notification {
   display: grid;
   grid-template-columns: 215px;
