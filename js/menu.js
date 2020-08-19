@@ -4,44 +4,37 @@ const sorting = document.querySelector(`.sort-list`);
 const filterBtn = document.querySelector(`.menu__btn--filter`);
 const sortingBtn = document.querySelector(`.menu__btn--sort`);
 
-let activeBlock = null;
+let activeBlockClass = null;
 
 const toggleMenuState = (condition) => {
   menu.classList.toggle(`menu--fixed`, condition);
 };
 
-const openBlock = (block) => {
-  block.style.display = `grid`;
+const toggleBlock = (blockClass, boolean) => {
+  document.querySelector(`.${blockClass}`).classList.toggle(`${blockClass}--active`, boolean);
 };
 
-const closeBlock = (block) => {
-  block.style.display = `none`;
-};
+const toggleBtn = (btnClass, boolean) => {
+  const btn = document.querySelector(`.${btnClass}`);
 
-const activateBtn = (btn) => {
-  btn.classList.add(`menu__btn--active`);
-  btn.setAttribute(`aria-expanded`, `true`);
-};
-
-const inactivateBtn = (btn) => {
-  btn.classList.remove(`menu__btn--active`);
-  btn.setAttribute(`aria-expanded`, `false`);
+  btn.classList.toggle(`${btnClass}--active`, boolean);
+  btn.setAttribute(`aria-expanded`, boolean);
 };
 
 window.addEventListener(`scroll`, () => {
   const condition = pageYOffset >= menu.offsetTop - 1;
 
   toggleMenuState(condition);
-
-  if (activeBlock) {
-    const activeBtn = activeBlock === filter ? filterBtn : sortingBtn;
+  if (activeBlockClass) {
+    
+    const activeBtnClass = activeBlockClass === `filter` ? `menu__btn--filter` : `menu__btn--sort`;
 
     if (condition) {
-      openBlock(activeBlock);
-      activateBtn(activeBtn);
+      toggleBlock(activeBlockClass, true);
+      toggleBtn(activeBtnClass, true);
     } else {
-      closeBlock(activeBlock);
-      inactivateBtn(activeBtn);
+      toggleBlock(activeBlockClass, false);
+      toggleBtn(activeBtnClass, false);
     }
   }
 });
@@ -49,26 +42,27 @@ window.addEventListener(`scroll`, () => {
 const toggleBlocks = (clickedBtn) => {
   const isExpanded = clickedBtn.getAttribute(`aria-expanded`) === `true`;
 
-  const block = clickedBtn === filterBtn ? filter : sorting;
+  const blockClass = clickedBtn === filterBtn ? `filter` : `sort-list`;
+  const clickedBtnClass = clickedBtn === filterBtn ? `menu__btn--filter` : `menu__btn--sort`;
 
   if (isExpanded) {
-    closeBlock(block);
-    inactivateBtn(clickedBtn);
-    activeBlock = null;
+    toggleBlock(blockClass, false);
+    toggleBtn(clickedBtnClass, false);
+    activeBlockClass = null;
     return;
   }
 
-  openBlock(block);
-  activateBtn(clickedBtn);
+  toggleBlock(blockClass, true);
+  toggleBtn(clickedBtnClass, true);
 
-  activeBlock = block;
+  activeBlockClass = blockClass;
 
   if (pageYOffset <= menu.offsetTop) {
     menu.scrollIntoView();
   }
 
-  closeBlock(block === filter ? sorting : filter);
-  inactivateBtn(clickedBtn === filterBtn ? sortingBtn : filterBtn);
+  toggleBlock(blockClass === `filter` ? `sort-list` : `filter`, false);
+  toggleBtn(clickedBtnClass === `menu__btn--filter` ? `menu__btn--sort` : `menu__btn--filter`, false);
 };
 
 menu.addEventListener(`click`, (e) => {
