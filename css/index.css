@@ -35,7 +35,11 @@
   grid-template-columns: 310px;
   justify-content: center;
   padding: 10px 0 15px;
+  position: fixed;
   text-align: center;
+  top: 0;
+  z-index: 9;
+  width: 100%;
 }
 
 .offline-notification__title {
