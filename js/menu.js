@@ -4,8 +4,6 @@ const sorting = document.querySelector(`.sort-list`);
 const filterBtn = document.querySelector(`.menu__btn--filter`);
 const sortingBtn = document.querySelector(`.menu__btn--sort`);
 
-const distanceFromMenuToTop = menu.offsetTop;
-
 let activeBlock = null;
 
 const scrollToElem = (elem) => {
@@ -13,7 +11,7 @@ const scrollToElem = (elem) => {
 };
 
 const toggleMenuState = () => {
-  menu.classList.toggle(`menu--fixed`, pageYOffset >= distanceFromMenuToTop - 1);
+  menu.classList.toggle(`menu--fixed`, pageYOffset >= menu.offsetTop - 1);
 };
 
 const openBlock = (block) => {
@@ -40,7 +38,7 @@ window.addEventListener(`scroll`, () => {
   if (activeBlock) {
     const activeBtn = activeBlock === filter ? filterBtn : sortingBtn;
 
-    if (pageYOffset <= distanceFromMenuToTop - 1) {
+    if (pageYOffset <= menu.offsetTop - 1) {
       closeBlock(activeBlock);
       inactivateBtn(activeBtn);
     } else {
@@ -67,7 +65,7 @@ const toggleBlocks = (clickedBtn) => {
   
   activeBlock = block;
 
-  if (pageYOffset <= distanceFromMenuToTop) {
+  if (pageYOffset <= menu.offsetTop) {
     scrollToElem(menu);
   }
 
