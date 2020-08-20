@@ -373,6 +373,7 @@
   margin: 0 auto;
   object-fit: cover;
   width: 255px;
+  height: 135px;
 }
 
 .carousel__img--active {
