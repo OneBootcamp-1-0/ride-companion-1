@@ -1,21 +1,12 @@
-const container = document.querySelector(`.catalog`);
-const loadingAlert = document.querySelector(`.loading-notification`);
-const filterAlert = `<section class="error-notification notification alert">
-  <h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2>
-  <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p>
-</section>`;
-const errorAlert = `<section class="error-notification notification alert">
-  <h2 class="error-notification__title">¯\\_(ツ)_/¯ Что-то пошло не так</h2>
-  <p class="notification__description">Попробуйте перезагрузить сайт</p>
-</section>`;
-const offlineAlert = `<section class="offline-notification notification">
-  <h3 class="offline-notification__title">📴 Офлайн</h3>
-  <p class="notification__description">Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.</p>
-</section>`;
-const filtersForms = document.querySelectorAll(`.filter-form`);
-const sortingForm = document.querySelector(`.sort-list-form`);
+
 const dataURL = `/data.json`;
 
+const {renderElement, createElement} = window.utils;
+
+const container = document.querySelector(`.catalog`);
+const loadingAlert = document.querySelector(`.loading-notification`);
+const sortingForm = document.querySelector(`.sort-list-form`);
+const filtersForms = document.querySelectorAll(`.filter-form`);
 
 const characteristicsRu = {
   type: {
@@ -35,19 +26,22 @@ const characteristicsRu = {
   }
 };
 
-const makeImages = (images, imgAlt) => images.map((url, i) =>
-  `<img src="${url}" data-i="${i + 1}" class="carousel__img" alt="${imgAlt}" height="135px" width="255px">`
+const makeImages = (images, imgAlt) => images.map((url) =>
+  `<img src="${url}" class="carousel__img" alt="${imgAlt}">`
 ).join(``);
 
 const createCarouselElement = (images, imgAlt) => `<div class="carousel">
-  <div data-translate="${-224}" class="carousel__list carousel__list--scroll">
+  <div class="carousel__list carousel__list--scroll">
     ${makeImages(images, imgAlt)}
-  </div></div>`;
+  </div>
+</div>`;
 
 const createCarElement = ({brand, model, images, minPrice, mileage, characteristics}) => `<article class="catalog-item">
+
   <h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
   <p class="catalog-item__price">от ${minPrice} ₽ / мес.</p>
   ${createCarouselElement(images, `${brand} ${model}`)}
+
   <dl class="catalog-item__mileage">
     <dt class="catalog-item__mileage-title">Пробег</dt>
     ${!mileage.month ? `` : `<dd class="catalog-item__milage-tariff">в месяц ${mileage.month} км,</dd>`}
@@ -61,68 +55,64 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   </ul>
 </article>`;
 
-const createElement = (html) => {
-  const template = document.createElement(`template`);
-  template.innerHTML = html;
-
-  return template.content.firstElementChild;
-};
-
-window.createElement = createElement;
-
-const renderTemplate = (cars) => {
-  loadingAlert.remove();
+const makeCarsRendered = (data) => {
   container.textContent = ``;
-  if (cars.length === 0) {
-    container.append(createElement(filterAlert));
+
+  const filteredData = window.filterAll(
+    data,
+    document.querySelector(`input[name=type]:checked`).id,
+    document.querySelector(`input[name=power]:checked`).id,
+    document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value,
+    document.querySelector(`input[name=class]:checked`).id
+  );
+
+  if (!filteredData.length) {
+    renderElement(container, (createElement(`<section class="error-notification notification alert">
+      <h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2>
+      <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p>
+    </section>`)));
     return;
   }
-  const sortedCars = window.sortData(cars, document.querySelector(`input[name=sort]:checked`).id);
-  sortedCars.forEach((car) => {
-    container.innerHTML += createCarElement(car);
+
+  const sortedData = window.sortData(filteredData, document.querySelector(`input[name=sort]:checked`).id);
+
+  sortedData.forEach((element) => {
+    const html = createElement(createCarElement(element));
+    renderElement(container, html);
   });
-  window.callCarousel();
-};
+}
 
 window.getData(dataURL)
   .then((data) => {
-    const filteredData = window.filterAll(data, document.querySelector(`input[name=type]:checked`).id, document.querySelector(`input[name=power]:checked`).id, document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value, document.querySelector(`input[name=class]:checked`).id);
-    window.carsData = data;
-    window.carsDataCopy = filteredData;
-    renderTemplate(filteredData);
+    loadingAlert.remove();
+    makeCarsRendered(data);
+    window.data = data;
   })
   .catch(() => {
     loadingAlert.remove();
-    container.before(createElement(errorAlert));
+    container.before(createElement(`<section class="error-notification notification alert">
+    <h2 class="error-notification__title">¯\\_(ツ)_/¯ Что-то пошло не так</h2>
+    <p class="notification__description">Попробуйте перезагрузить сайт</p>
+  </section>`));
   });
 
+filtersForms.forEach((form) => {
+  form.addEventListener(`change`, () => {
+    makeCarsRendered(window.data);
+  });
+});
+
+sortingForm.addEventListener(`change`, () => {
+  makeCarsRendered(window.data);
+});
+
 window.addEventListener(`offline`, () => {
-  container.before(createElement(offlineAlert));
+  container.before(createElement(`<section class="offline-notification notification">
+  <h3 class="offline-notification__title">📴 Офлайн</h3>
+  <p class="notification__description">Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.</p>
+</section>`));
 });
 
 window.addEventListener(`online`, () => {
   document.querySelector(`.offline-notification`).remove();
-
 });
-
-// Do filtration on change of form's inputs
-filtersForms.forEach((form) => {
-  form.addEventListener(`change`, () => {
-    const type = document.querySelector(`input[name=type]:checked`).id;
-    const power = document.querySelector(`input[name=power]:checked`).id;
-    const fuel = document.querySelector(`input[name=fuel]:checked`).id;
-    const price = +document.querySelector(`input[name=price]`).value;
-    const carClass = document.querySelector(`input[name=class]:checked`).id;
-
-    renderTemplate(window.filterAll(window.carsData, type, power, fuel, price, carClass));
-    window.carsDataCopy = window.filterAll(window.carsData, type, power, fuel, price, carClass);
-  });
-});
-
-// Do sorting
-sortingForm.addEventListener(`change`, () => {
-  const checkedInputId = document.querySelector(`input[name=sort]:checked`).id;
-  renderTemplate(window.sortData(window.carsDataCopy, checkedInputId));
-});
-
-window.renderTemplate = renderTemplate;
