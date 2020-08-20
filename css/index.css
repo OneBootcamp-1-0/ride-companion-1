@@ -362,28 +362,21 @@
 
 .carousel__list {
   display: flex;
-  transform: translateX(-224px);
   transition: 0.2s;
 }
 
-.carousel__list--single {
-  transform: translateX(0);
+.carousel__list--scroll {
+  overflow-x: auto;
 }
 
 .carousel__img {
-  filter: blur(2px);
+  margin: 0 auto;
   object-fit: cover;
   width: 255px;
 }
 
 .carousel__img--active {
-  filter: blur(0);
-}
-
-.carousel__img--single {
-  filter: blur(0);
-  margin: 0 auto;
-  object-fit: cover;
+  filter: blur(0) !important;
 }
 
 .carousel__btn {

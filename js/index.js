@@ -36,26 +36,13 @@ const characteristicsRu = {
 };
 
 const makeImages = (images, imgAlt) => images.map((url, i) =>
-  `<img src="${url}" data-i="${i + 1}" class="${images.length === 1 ? `carousel__img--single` : `carousel__img`}" alt="${imgAlt}" height="135px" width="255px">`
+  `<img src="${url}" data-i="${i + 1}" class="carousel__img" alt="${imgAlt}" height="135px" width="255px">`
 ).join(``);
 
 const createCarouselElement = (images, imgAlt) => `<div class="carousel">
-  <div data-translate="${-224}" class="${images.length === 1 ? `carousel__list carousel__list--single` : `carousel__list`}">
+  <div data-translate="${-224}" class="carousel__list carousel__list--scroll">
     ${makeImages(images, imgAlt)}
-  </div>
-  ${images.length === 1 ? `` : `<button class="carousel__btn carousel__btn--left" type="button" aria-label="предыдущий слайд">
-    <svg class="carousel__arrow" width="18" height="82" viewBox="0 0 18 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
-      <line x1="15.9391" y1="0.343582" x2="0.939123" y2="41.3436" stroke-width="2"/>
-      <line x1="16.0626" y1="81.343" x2="1.0592" y2="40.3443" stroke-width="2"/>
-    </svg>
-  </button>
-  <button class="carousel__btn carousel__btn--right" type="button" aria-label="следующий слайд">
-    <svg class="carousel__arrow" width="17" height="82" viewBox="0 0 17 82" fill="white"  stroke="#E0E0E0" xmlns="http://www.w3.org/2000/svg">
-      <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343547 0.939135 0.93911 -0.343616 2.0016 0)" stroke-width="2"/>
-      <line y1="-1" x2="43.6575" y2="-1" transform="matrix(0.343625 -0.939107 -0.939082 -0.343694 0.000106812 81)" stroke-width="2"/>
-    </svg>
-  </button>`}
-</div>`;
+  </div></div>`;
 
 const createCarElement = ({brand, model, images, minPrice, mileage, characteristics}) => `<article class="catalog-item">
   <h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
@@ -80,6 +67,8 @@ const createElement = (html) => {
 
   return template.content.firstElementChild;
 };
+
+window.createElement = createElement;
 
 const renderTemplate = (cars) => {
   loadingAlert.remove();
@@ -113,6 +102,7 @@ window.addEventListener(`offline`, () => {
 
 window.addEventListener(`online`, () => {
   document.querySelector(`.offline-notification`).remove();
+
 });
 
 // Do filtration on change of form's inputs
@@ -124,7 +114,7 @@ filtersForms.forEach((form) => {
     const price = +document.querySelector(`input[name=price]`).value;
     const carClass = document.querySelector(`input[name=class]:checked`).id;
 
-    window.renderTemplate(window.filterAll(window.carsData, type, power, fuel, price, carClass));
+    renderTemplate(window.filterAll(window.carsData, type, power, fuel, price, carClass));
     window.carsDataCopy = window.filterAll(window.carsData, type, power, fuel, price, carClass);
   });
 });
