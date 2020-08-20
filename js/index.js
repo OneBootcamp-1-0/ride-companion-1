@@ -12,6 +12,7 @@ const offlineAlert = `<section class="offline-notification notification">
   <h3 class="offline-notification__title">📴 Офлайн</h3>
   <p class="notification__description">Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.</p>
 </section>`;
+const filtersForms = document.querySelectorAll(`.filter-form`);
 
 const characteristicsRu = {
   type: {
@@ -94,7 +95,7 @@ const renderTemplate = (cars) => {
 window.getData()
   .then((data) => {
     window.carsData = data;
-    renderTemplate(window.filterAll(data));
+    renderTemplate(window.filterAll(data, document.querySelector(`input[name=type]:checked`).id, document.querySelector(`input[name=power]:checked`).id, document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value, document.querySelector(`input[name=class]:checked`).id));
   })
   .catch(() => {
     loadingAlert.remove();
@@ -109,4 +110,18 @@ window.addEventListener(`offline`, () => {
 
 window.addEventListener(`online`, () => {
   document.querySelector(`.offline-notification`).remove();
+});
+
+// Do filtration on change of form's inputs
+filtersForms.forEach((form) => {
+  form.addEventListener(`change`, () => {
+    const type = document.querySelector(`input[name=type]:checked`).id;
+    const power = document.querySelector(`input[name=power]:checked`).id;
+    const fuel = document.querySelector(`input[name=fuel]:checked`).id;
+    const price = +document.querySelector(`input[name=price]`).value;
+    const carClass = document.querySelector(`input[name=class]:checked`).id;
+
+    window.renderTemplate(window.filterAll(window.carsData, type, power, fuel, price, carClass));
+    window.carsDataCopy = window.filterAll(window.carsData, type, power, fuel, price, carClass);
+  });
 });
