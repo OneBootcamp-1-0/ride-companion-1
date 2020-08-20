@@ -14,6 +14,8 @@ const offlineAlert = `<section class="offline-notification notification">
 </section>`;
 const filtersForms = document.querySelectorAll(`.filter-form`);
 const sortingForm = document.querySelector(`.sort-list-form`);
+const dataURL = `/data.json`;
+
 
 const characteristicsRu = {
   type: {
@@ -93,7 +95,7 @@ const renderTemplate = (cars) => {
   window.callCarousel();
 };
 
-window.getData()
+window.getData(dataURL)
   .then((data) => {
     const filteredData = window.filterAll(data, document.querySelector(`input[name=type]:checked`).id, document.querySelector(`input[name=power]:checked`).id, document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value, document.querySelector(`input[name=class]:checked`).id);
     window.carsData = data;
