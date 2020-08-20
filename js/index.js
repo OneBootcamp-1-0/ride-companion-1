@@ -13,6 +13,7 @@ const offlineAlert = `<section class="offline-notification notification">
   <p class="notification__description">Кажется, вы не подключены к интернету. Проверьте подключение к вайфаю или к сети.</p>
 </section>`;
 const filtersForms = document.querySelectorAll(`.filter-form`);
+const sortingForm = document.querySelector(`.sort-list-form`);
 
 const characteristicsRu = {
   type: {
@@ -85,7 +86,7 @@ const renderTemplate = (cars) => {
     container.append(createElement(filterAlert));
     return;
   }
-  const sortedCars = window.sortData(cars);
+  const sortedCars = window.sortData(cars, document.querySelector(`input[name=sort]:checked`).id);
   sortedCars.forEach((car) => {
     container.innerHTML += createCarElement(car);
   });
@@ -94,15 +95,15 @@ const renderTemplate = (cars) => {
 
 window.getData()
   .then((data) => {
+    const filteredData = window.filterAll(data, document.querySelector(`input[name=type]:checked`).id, document.querySelector(`input[name=power]:checked`).id, document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value, document.querySelector(`input[name=class]:checked`).id);
     window.carsData = data;
-    renderTemplate(window.filterAll(data, document.querySelector(`input[name=type]:checked`).id, document.querySelector(`input[name=power]:checked`).id, document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value, document.querySelector(`input[name=class]:checked`).id));
+    window.carsDataCopy = filteredData;
+    renderTemplate(filteredData);
   })
   .catch(() => {
     loadingAlert.remove();
     container.before(createElement(errorAlert));
   });
-
-window.renderTemplate = renderTemplate;
 
 window.addEventListener(`offline`, () => {
   container.before(createElement(offlineAlert));
@@ -125,3 +126,11 @@ filtersForms.forEach((form) => {
     window.carsDataCopy = window.filterAll(window.carsData, type, power, fuel, price, carClass);
   });
 });
+
+// Do sorting
+sortingForm.addEventListener(`change`, () => {
+  const checkedInputId = document.querySelector(`input[name=sort]:checked`).id;
+  renderTemplate(window.sortData(window.carsDataCopy, checkedInputId));
+});
+
+window.renderTemplate = renderTemplate;
