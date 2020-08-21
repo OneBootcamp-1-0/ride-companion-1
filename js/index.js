@@ -58,11 +58,11 @@ const makeCarsRendered = (data) => {
   container.textContent = ``;
 
   const filteredData = window.filterAll(
-    data,
-    document.querySelector(`input[name=type]:checked`).id,
-    document.querySelector(`input[name=power]:checked`).id,
-    document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value,
-    document.querySelector(`input[name=class]:checked`).id
+      data,
+      document.querySelector(`input[name=type]:checked`).id,
+      document.querySelector(`input[name=power]:checked`).id,
+      document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value,
+      document.querySelector(`input[name=class]:checked`).id
   );
 
   if (!filteredData.length) {
@@ -85,7 +85,7 @@ const makeCarsRendered = (data) => {
   carousels.forEach((element) => {
     new window.Carousel(element).init();
   });
-}
+};
 
 window.getData(dataURL)
   .then((data) => {
