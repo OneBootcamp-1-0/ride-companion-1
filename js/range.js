@@ -18,11 +18,7 @@ const moveBg = () => {
 };
 
 output.addEventListener(`input`, moveBg);
-
 slider.addEventListener(`input`, moveBg);
-
 slider.addEventListener(`change`, moveBg);
-
 slider.addEventListener(`touchmove`, moveBg);
-
 slider.addEventListener(`touchend`, moveBg);
