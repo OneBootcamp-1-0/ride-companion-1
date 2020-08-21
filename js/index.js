@@ -79,6 +79,12 @@ const makeCarsRendered = (data) => {
     const html = createElement(createCarElement(element));
     renderElement(container, html);
   });
+
+  const carousels = document.querySelectorAll(`.carousel`);
+
+  carousels.forEach((element) => {
+    new window.Carousel(element).init();
+  });
 }
 
 window.getData(dataURL)
