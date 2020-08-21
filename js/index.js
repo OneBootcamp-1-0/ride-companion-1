@@ -41,7 +41,6 @@ const createCarElement = ({brand, model, images, minPrice, mileage, characterist
   <h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
   <p class="catalog-item__price">от ${minPrice} ₽ / мес.</p>
   ${createCarouselElement(images, `${brand} ${model}`)}
-
   <dl class="catalog-item__mileage">
     <dt class="catalog-item__mileage-title">Пробег</dt>
     ${!mileage.month ? `` : `<dd class="catalog-item__milage-tariff">в месяц ${mileage.month} км,</dd>`}
