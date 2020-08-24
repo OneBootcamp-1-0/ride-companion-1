@@ -21,8 +21,8 @@ class Carousel {
   }
 
   _addArrows() {
-    this.carouselList.after(createElement(this.leftArrow));
-    this.carouselList.after(createElement(this.rightArrow));
+    this.carouselList.after(window.utils.createElement(this.leftArrow));
+    this.carouselList.after(window.utils.createElement(this.rightArrow));
 
     this.leftArrowNode = this.carousel.querySelector(`.carousel__btn--left`);
     this.rightArrowNode = this.carousel.querySelector(`.carousel__btn--right`);
@@ -34,7 +34,7 @@ class Carousel {
 
   _blurInactiveSldes() {
     this.carouselListElems.forEach((element, i) => {
-      element.style.filter = `blur(${i + 1 === +this.carouselList.dataset.activeSlide ? 0 : 2}px)`
+      element.style.filter = `blur(${i + 1 === +this.carouselList.dataset.activeSlide ? 0 : 2}px)`;
     });
   }
 
@@ -50,59 +50,45 @@ class Carousel {
       this._blurInactiveSldes();
 
       this.leftArrowNode.addEventListener(`click`, () => {
-        this._moveToLeft(this.leftArrowNode);
+        this._move(this.leftArrowNode);
       });
 
       this.rightArrowNode.addEventListener(`click`, () => {
-        this._moveToRight(this.rightArrowNode);
+        this._move(this.rightArrowNode);
       });
     }
   }
 
   _toggleDisabled(btn) {
     if (btn === this.leftArrowNode && this.activeSlideNum === this.carouselListElems.length) {
-      return this.rightArrowNode.disabled = false;
+      this.rightArrowNode.disabled = false;
+      return;
     }
 
     if (btn === this.rightArrowNode && this.activeSlideNum === 1) {
-      return this.leftArrowNode.disabled = false;
+      this.leftArrowNode.disabled = false;
+      return;
     }
 
     if ((btn === this.leftArrowNode && this.activeSlideNum === 2)
       || btn === this.rightArrowNode && this.activeSlideNum === this.carouselListElems.length - 1) {
-      return btn.disabled = true;
-    }
-  }
-
-  _moveToRight(btn) {
-    const currTranslateNum = parseInt(this.carouselList.style.transform.match(/(?<!\d)-?\d*[.,]?\d+/));
-
-    if (this.activeSlideNum === this.carouselListElems.length) {
+      btn.disabled = true;
       return;
     }
+    return;
+  }
+
+  _move(btn) {
+    const isLeftBtn = btn === this.leftArrowNode;
+
+    const currTranslateNum = parseInt(this.carouselList.style.transform.match(/(?<!\d)-?\d*[.,]?\d+/), 10);
 
     this._toggleDisabled(btn);
 
-    this.carouselList.style.transform = `translateX(-${this.translateVal - currTranslateNum}px)`;
+    this.carouselList.style.transform = `translateX(${isLeftBtn ? `${this.translateVal + currTranslateNum}` : `-${this.translateVal - currTranslateNum}`}px)`;
 
-    this.activeSlideNum = this.activeSlideNum + 1;
-    this.carouselList.dataset.activeSlide = this.activeSlideNum;
+    this.activeSlideNum = isLeftBtn ? this.activeSlideNum - 1 : this.activeSlideNum + 1;
 
-    this._blurInactiveSldes();
-  }
-
-  _moveToLeft(btn) {
-    const currTranslateNum = parseInt(this.carouselList.style.transform.match(/(?<!\d)-?\d*[.,]?\d+/));
-
-    if (this.activeSlideNum === 1) {
-      return;
-    }
-
-    this._toggleDisabled(btn);
-
-    this.carouselList.style.transform = `translateX(${this.translateVal + currTranslateNum}px)`;
-
-    this.activeSlideNum = this.activeSlideNum - 1;
     this.carouselList.dataset.activeSlide = this.activeSlideNum;
 
     this._blurInactiveSldes();
