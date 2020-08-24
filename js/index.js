@@ -37,7 +37,6 @@ const createCarouselElement = (images, imgAlt) => `<div class="carousel">
 </div>`;
 
 const createCarElement = ({brand, model, images, minPrice, mileage, characteristics}) => `<article class="catalog-item">
-
   <h3 class="catalog-item__title"><a href="#">${brand} ${model}</a></h3>
   <p class="catalog-item__price">от ${minPrice} ₽ / мес.</p>
   ${createCarouselElement(images, `${brand} ${model}`)}
