@@ -89,17 +89,16 @@ const makeCarsRendered = (data) => {
 
 window.getData(dataURL)
   .then((data) => {
-    loadingAlert.remove();
     makeCarsRendered(data);
     window.data = data;
   })
   .catch(() => {
-    loadingAlert.remove();
     container.before(createElement(`<section class="error-notification notification alert">
     <h2 class="error-notification__title">¯\\_(ツ)_/¯ Что-то пошло не так</h2>
     <p class="notification__description">Попробуйте перезагрузить сайт</p>
   </section>`));
-  });
+  })
+  .finally(() => loadingAlert.remove())
 
 filtersForms.forEach((form) => {
   form.addEventListener(`change`, () => {
