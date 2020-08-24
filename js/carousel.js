@@ -81,7 +81,7 @@ class Carousel {
   _move(btn) {
     const isLeftBtn = btn === this.leftArrowNode;
 
-    const currTranslateNum = parseInt(this.carouselList.style.transform.match(/(?<!\d)-?\d*[.,]?\d+/), 10);
+    const currTranslateNum = parseInt(this.carouselList.style.transform.match(/(\-)?\d+/));
 
     this._toggleDisabled(btn);
 
