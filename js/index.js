@@ -61,7 +61,8 @@ const makeCarsRendered = (data) => {
       data,
       document.querySelector(`input[name=type]:checked`).id,
       document.querySelector(`input[name=power]:checked`).id,
-      document.querySelector(`input[name=fuel]:checked`).id, +document.querySelector(`input[name=price]`).value,
+      document.querySelector(`input[name=fuel]:checked`).id,
+      +document.querySelector(`input[name=price]`).value,
       document.querySelector(`input[name=class]:checked`).id
   );
 
