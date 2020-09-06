@@ -68,7 +68,7 @@ const makeCarsRendered = (data) => {
   if (!filteredData.length) {
     renderElement(container, (createElement(`<section class="error-notification notification alert">
       <h2 class="error-notification__title">¯\\_(ツ)_/¯ Слишком строгие фильтры</h2>
-      <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или <button class="filter-notification__btn">отменить последний фильтр</button></p>
+      <p class="notification__description">Под выбранные условия не подходит ни один автомобиль. Попробуйте смягчить условия или отменить последний фильтр</p>
     </section>`)));
     return;
   }

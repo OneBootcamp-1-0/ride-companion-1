@@ -20,14 +20,6 @@
   margin: 0;
 }
 
-.filter-notification__btn {
-  background: none;
-  border: 0;
-  color: var(--text-c);
-  padding: 0;
-  text-decoration: underline;
-}
-
 .offline-notification {
   background-color: var(--dark-bg-c);
   bottom: 0;
