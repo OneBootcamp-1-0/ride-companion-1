@@ -30,6 +30,7 @@
 
 .offline-notification {
   background-color: var(--dark-bg-c);
+  bottom: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 310px;
@@ -37,9 +38,8 @@
   padding: 10px 0 15px;
   position: fixed;
   text-align: center;
-  top: 0;
   z-index: 9;
-  width: 100%;
+  width: 600px;
 }
 
 .offline-notification__title {
@@ -362,28 +362,22 @@
 
 .carousel__list {
   display: flex;
-  transform: translateX(-224px);
   transition: 0.2s;
 }
 
-.carousel__list--single {
-  transform: translateX(0);
+.carousel__list--scroll {
+  overflow-x: auto;
 }
 
 .carousel__img {
-  filter: blur(2px);
+  margin: 0 auto;
   object-fit: cover;
   width: 255px;
+  height: 135px;
 }
 
 .carousel__img--active {
-  filter: blur(0);
-}
-
-.carousel__img--single {
-  filter: blur(0);
-  margin: 0 auto;
-  object-fit: cover;
+  filter: blur(0) !important;
 }
 
 .carousel__btn {
