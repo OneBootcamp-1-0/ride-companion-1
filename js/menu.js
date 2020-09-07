@@ -1,6 +1,8 @@
 const menu = document.querySelector(`.menu-form`);
 const filterBtn = document.querySelector(`.menu__btn--filter`);
 const sortingBtn = document.querySelector(`.menu__btn--sort`);
+const filterElement = document.querySelector(`.filter`);
+const sortElement = document.querySelector(`.sort-list`);
 
 let activeBlockClass = null;
 
@@ -39,6 +41,27 @@ window.addEventListener(`scroll`, () => {
       toggleBlock(activeBlockClass, false);
       toggleBtn(activeBtnClass, false);
     }
+  }
+});
+
+
+document.addEventListener(`click`, (e) => {
+  if (e.path.includes(menu) ||
+      e.path.includes(filterElement) ||
+      e.path.includes(sortElement)) {
+    return;
+  }
+
+  let buttonToClick = null;
+
+  if (filterBtn.getAttribute(`aria-expanded`) === `true`) {
+    buttonToClick = filterBtn;
+  } else if (sortingBtn.getAttribute(`aria-expanded`) === `true`) {
+    buttonToClick = sortingBtn;
+  }
+
+  if (buttonToClick) {
+    toggleBlocks(buttonToClick);
   }
 });
 
